@@ -1,0 +1,1598 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>opensearchpy.client.cat &mdash; OpenSearch Python Client  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=7f485136" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../../../_static/doctools.js?v=888ff710"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            OpenSearch Python Client
+              <img src="../../../_static/OpenSearch.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-ref.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/opensearch-project/opensearch-py/blob/main/LICENSE.txt">License</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/opensearch-project/opensearch-py/blob/main/CONTRIBUTING.md">Contributing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/opensearch-project/opensearch-py/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/opensearch-project/opensearch-py/blob/main/DEVELOPER_GUIDE.md">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/opensearch-project/opensearch-py">GitHub Repository</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">OpenSearch Python Client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../client.html">opensearchpy.client</a></li>
+      <li class="breadcrumb-item active">opensearchpy.client.cat</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for opensearchpy.client.cat</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># The OpenSearch Contributors require contributions made to</span>
+<span class="c1"># this file be licensed under the Apache-2.0 license or a</span>
+<span class="c1"># compatible open source license.</span>
+<span class="c1">#</span>
+<span class="c1"># Modifications Copyright OpenSearch Contributors. See</span>
+<span class="c1"># GitHub history for details.</span>
+<span class="c1">#</span>
+<span class="c1">#  Licensed to Elasticsearch B.V. under one or more contributor</span>
+<span class="c1">#  license agreements. See the NOTICE file distributed with</span>
+<span class="c1">#  this work for additional information regarding copyright</span>
+<span class="c1">#  ownership. Elasticsearch B.V. licenses this file to you under</span>
+<span class="c1">#  the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1">#  not use this file except in compliance with the License.</span>
+<span class="c1">#  You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># 	http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1">#  Unless required by applicable law or agreed to in writing,</span>
+<span class="c1">#  software distributed under the License is distributed on an</span>
+<span class="c1">#  &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1">#  KIND, either express or implied.  See the License for the</span>
+<span class="c1">#  specific language governing permissions and limitations</span>
+<span class="c1">#  under the License.</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------------------</span>
+<span class="c1"># THIS CODE IS AUTOMATICALLY GENERATED AND MANUAL EDITS WILL BE LOST</span>
+<span class="c1">#</span>
+<span class="c1"># To contribute, kindly make modifications in the opensearch-py client generator</span>
+<span class="c1"># or in the OpenSearch API specification, and run `nox -rs generate`. See DEVELOPER_GUIDE.md</span>
+<span class="c1"># and https://github.com/opensearch-project/opensearch-api-specification for details.</span>
+<span class="c1"># -----------------------------------------------------------------------------------------+</span>
+
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamespacedClient</span><span class="p">,</span> <span class="n">_make_path</span><span class="p">,</span> <span class="n">query_params</span>
+
+
+<div class="viewcode-block" id="CatClient"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">CatClient</span><span class="p">(</span><span class="n">NamespacedClient</span><span class="p">):</span>
+<div class="viewcode-block" id="CatClient.aliases"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.aliases">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;expand_wildcards&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aliases</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Shows information about aliases currently configured to indexes, including</span>
+<span class="sd">        filter and routing information.</span>
+
+
+<span class="sd">        :arg name: A comma-separated list of aliases to retrieve.</span>
+<span class="sd">            Supports wildcards (`*`).  To retrieve all aliases, omit this parameter</span>
+<span class="sd">            or use `*` or `_all`.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg expand_wildcards: Specifies the type of index that wildcard</span>
+<span class="sd">            expressions can match. Supports comma-separated values. Valid choices</span>
+<span class="sd">            are all, closed, hidden, none, open.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg local: Whether to return information from the local node</span>
+<span class="sd">            only instead of from the cluster manager node. Default is false.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;aliases&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.all_pit_segments"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.all_pit_segments">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;bytes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">all_pit_segments</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists all active CAT point-in-time segments.</span>
+
+
+<span class="sd">        :arg bytes: The units used to display byte values. Valid choices</span>
+<span class="sd">            are b, kb, k, mb, m, gb, g, tb, t, pb, p.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cat/pit_segments/_all&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.allocation"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.allocation">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;bytes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">allocation</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">node_id</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides a snapshot of how many shards are allocated to each data node and how</span>
+<span class="sd">        much disk space they are using.</span>
+
+
+<span class="sd">        :arg node_id: A comma-separated list of node IDs or names used</span>
+<span class="sd">            to limit the returned information.</span>
+<span class="sd">        :arg bytes: The units used to display byte values. Valid choices</span>
+<span class="sd">            are b, kb, k, mb, m, gb, g, tb, t, pb, p.</span>
+<span class="sd">        :arg cluster_manager_timeout: A timeout for connection to the</span>
+<span class="sd">            cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the HTTP `Accept` header, such</span>
+<span class="sd">            as `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg local: Returns local information but does not retrieve the</span>
+<span class="sd">            state from cluster-manager node. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): A timeout for connection to the</span>
+<span class="sd">            cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;allocation&quot;</span><span class="p">,</span> <span class="n">node_id</span><span class="p">),</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.cluster_manager"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.cluster_manager">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cluster_manager</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about the cluster-manager node.</span>
+
+
+<span class="sd">        :arg cluster_manager_timeout: A timeout for connection to the</span>
+<span class="sd">            cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the HTTP `Accept` header, such</span>
+<span class="sd">            as `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg local: Returns local information but does not retrieve the</span>
+<span class="sd">            state from the cluster manager node. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): A timeout for connection to the</span>
+<span class="sd">            cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cat/cluster_manager&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.count"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.count">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides quick access to the document count of the entire cluster or of an</span>
+<span class="sd">        individual index.</span>
+
+
+<span class="sd">        :arg index: A comma-separated list of data streams, indexes, and</span>
+<span class="sd">            aliases used to limit the request. Supports wildcards (`*`). To target</span>
+<span class="sd">            all data streams and indexes, omit this parameter or use `*` or `_all`.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.fielddata"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.fielddata">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;bytes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fielddata</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">fields</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Shows how much heap memory is currently being used by field data on every data</span>
+<span class="sd">        node in the cluster.</span>
+
+
+<span class="sd">        :arg fields: A comma-separated list of fields used to limit the</span>
+<span class="sd">            amount of returned information.</span>
+<span class="sd">        :arg bytes: The units used to display byte values. Valid choices</span>
+<span class="sd">            are b, kb, k, mb, m, gb, g, tb, t, pb, p.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;fielddata&quot;</span><span class="p">,</span> <span class="n">fields</span><span class="p">),</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.health"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.health">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ts&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">health</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a concise representation of the cluster health.</span>
+
+
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg time: The unit used to display time values. Valid choices</span>
+<span class="sd">            are nanos, micros, ms, s, m, h, d.</span>
+<span class="sd">        :arg ts: When `true`, returns `HH:MM:SS` and Unix epoch</span>
+<span class="sd">            timestamps. Default is True.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cat/health&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.help"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.help">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">&quot;error_trace&quot;</span><span class="p">,</span> <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span> <span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;pretty&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">help</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns help for the Cat APIs.</span>
+
+
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cat&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.indices"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.indices">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;bytes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;expand_wildcards&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;health&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;include_unloaded_segments&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pri&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">indices</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists information related to indexes, that is, how much disk space they are</span>
+<span class="sd">        using, how many shards they have, their health status, and so on.</span>
+
+
+<span class="sd">        :arg index: A comma-separated list of data streams, indexes, and</span>
+<span class="sd">            aliases used to limit the request. Supports wildcards (`*`). To target</span>
+<span class="sd">            all data streams and indexes, omit this parameter or use `*` or `_all`.</span>
+<span class="sd">        :arg bytes: The units used to display byte values. Valid choices</span>
+<span class="sd">            are b, kb, k, mb, m, gb, g, tb, t, pb, p.</span>
+<span class="sd">        :arg cluster_manager_timeout: The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg expand_wildcards: Specifies the type of index that wildcard</span>
+<span class="sd">            expressions can match. Supports comma-separated values. Valid choices</span>
+<span class="sd">            are all, closed, hidden, none, open.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg health: Limits indexes based on their health status.</span>
+<span class="sd">            Supported values are `green`, `yellow`, and `red`. Valid choices are</span>
+<span class="sd">            green, yellow, red.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg include_unloaded_segments: Whether to include information</span>
+<span class="sd">            from segments not loaded into memory. Default is false.</span>
+<span class="sd">        :arg local: Returns local information but does not retrieve the</span>
+<span class="sd">            state from the cluster manager node. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg pri: When `true`, returns information only from the primary</span>
+<span class="sd">            shards. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg time: Specifies the time units. Valid choices are nanos,</span>
+<span class="sd">            micros, ms, s, m, h, d.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;indices&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.master"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.master">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">master</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about the cluster-manager node.</span>
+
+
+<span class="sd">        :arg cluster_manager_timeout: The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg local: Returns local information but does not retrieve the</span>
+<span class="sd">            state from the cluster manager node. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">warnings</span><span class="w"> </span><span class="kn">import</span> <span class="n">warn</span>
+
+        <span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;Deprecated: To promote inclusive language, use &#39;/_cat/cluster_manager&#39; instead.&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cat/master&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.nodeattrs"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.nodeattrs">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">nodeattrs</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about custom node attributes.</span>
+
+
+<span class="sd">        :arg cluster_manager_timeout: The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg local: Returns local information but does not retrieve the</span>
+<span class="sd">            state from the cluster manager node. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cat/nodeattrs&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.nodes"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.nodes">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;bytes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_id&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">nodes</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns basic statistics about the performance of cluster nodes.</span>
+
+
+<span class="sd">        :arg bytes: The units used to display byte values. Valid choices</span>
+<span class="sd">            are b, kb, k, mb, m, gb, g, tb, t, pb, p.</span>
+<span class="sd">        :arg cluster_manager_timeout: The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg full_id: When `true`, returns the full node ID. When</span>
+<span class="sd">            `false`, returns the shortened node ID.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg local (Deprecated: This parameter does not cause this API</span>
+<span class="sd">            to act locally.): Returns local information but does not retrieve the</span>
+<span class="sd">            state from the cluster manager node. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg time: Specifies the time units, for example, `5d` or `7h`.</span>
+<span class="sd">            For more information, see [Supported</span>
+<span class="sd">            units](https://opensearch.org/docs/latest/api-reference/units/). Valid</span>
+<span class="sd">            choices are nanos, micros, ms, s, m, h, d.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cat/nodes&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.pending_tasks"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.pending_tasks">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pending_tasks</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns a concise representation of the cluster&#39;s pending tasks.</span>
+
+
+<span class="sd">        :arg cluster_manager_timeout: The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg local: Returns local information but does not retrieve the</span>
+<span class="sd">            state from the cluster manager node. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg time: Specifies the time units, for example, `5d` or `7h`.</span>
+<span class="sd">            For more information, see [Supported</span>
+<span class="sd">            units](https://opensearch.org/docs/latest/api-reference/units/). Valid</span>
+<span class="sd">            choices are nanos, micros, ms, s, m, h, d.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cat/pending_tasks&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.pit_segments"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.pit_segments">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;bytes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pit_segments</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">body</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists one or several CAT point-in-time segments.</span>
+
+
+<span class="sd">        :arg bytes: The units used to display byte values. Valid choices</span>
+<span class="sd">            are b, kb, k, mb, m, gb, g, tb, t, pb, p.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cat/pit_segments&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.plugins"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.plugins">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plugins</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about the names, components, and versions of the installed</span>
+<span class="sd">        plugins.</span>
+
+
+<span class="sd">        :arg cluster_manager_timeout: The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg local: Returns local information but does not retrieve the</span>
+<span class="sd">            state from the cluster manager node. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cat/plugins&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.recovery"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.recovery">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;active_only&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;bytes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;detailed&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">recovery</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns all completed and ongoing index and shard recoveries.</span>
+
+
+<span class="sd">        :arg index: A comma-separated list of data streams, indexes, and</span>
+<span class="sd">            aliases used to limit the request. Supports wildcards (`*`). To target</span>
+<span class="sd">            all data streams and indexes, omit this parameter or use `*` or `_all`.</span>
+<span class="sd">        :arg active_only: If `true`, the response only includes ongoing</span>
+<span class="sd">            shard recoveries. Default is false.</span>
+<span class="sd">        :arg bytes: The units used to display byte values. Valid choices</span>
+<span class="sd">            are b, kb, k, mb, m, gb, g, tb, t, pb, p.</span>
+<span class="sd">        :arg detailed: When `true`, includes detailed information about</span>
+<span class="sd">            shard recoveries. Default is false.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg time: Specifies the time units, for example, `5d` or `7h`.</span>
+<span class="sd">            For more information, see [Supported</span>
+<span class="sd">            units](https://opensearch.org/docs/latest/api-reference/units/). Valid</span>
+<span class="sd">            choices are nanos, micros, ms, s, m, h, d.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;recovery&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.repositories"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.repositories">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">repositories</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about all snapshot repositories for a cluster.</span>
+
+
+<span class="sd">        :arg cluster_manager_timeout: The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg local: Returns local information but does not retrieve the</span>
+<span class="sd">            state from the cluster manager node. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cat/repositories&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.segment_replication"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.segment_replication">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;active_only&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;allow_no_indices&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;bytes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;completed_only&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;detailed&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;expand_wildcards&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ignore_throttled&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ignore_unavailable&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;shards&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">segment_replication</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns information about active and last-completed segment replication events</span>
+<span class="sd">        on each replica shard, including related shard-level metrics.  These metrics</span>
+<span class="sd">        provide information about how far behind the primary shard the replicas are</span>
+<span class="sd">        lagging.</span>
+
+
+<span class="sd">        :arg index: A comma-separated list of data streams, indexes, and</span>
+<span class="sd">            aliases used to limit the request. Supports wildcards (`*`). To target</span>
+<span class="sd">            all data streams and indexes, omit this parameter or use `*` or `_all`.</span>
+<span class="sd">        :arg active_only: When `true`, the response only includes</span>
+<span class="sd">            ongoing segment replication events. Default is false.</span>
+<span class="sd">        :arg allow_no_indices: Whether to ignore the index if a wildcard</span>
+<span class="sd">            index expression resolves to no concrete indexes. This includes the</span>
+<span class="sd">            `_all` string or when no indexes have been specified.</span>
+<span class="sd">        :arg bytes: The units used to display byte values. Valid choices</span>
+<span class="sd">            are b, kb, k, mb, m, gb, g, tb, t, pb, p.</span>
+<span class="sd">        :arg completed_only: When `true`, the response only includes the</span>
+<span class="sd">            last-completed segment replication events. Default is false.</span>
+<span class="sd">        :arg detailed: When `true`, the response includes additional</span>
+<span class="sd">            metrics for each stage of a segment replication event. Default is false.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg expand_wildcards: Specifies the type of index that wildcard</span>
+<span class="sd">            expressions can match. Supports comma-separated values. Valid choices</span>
+<span class="sd">            are all, closed, hidden, none, open.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg ignore_throttled: Whether specified concrete, expanded, or</span>
+<span class="sd">            aliased indexes should be ignored when throttled.</span>
+<span class="sd">        :arg ignore_unavailable: Whether the specified concrete indexes</span>
+<span class="sd">            should be ignored when missing or closed.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg shards: A comma-separated list of shards to display.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg time: Specifies the time units, for example, `5d` or `7h`.</span>
+<span class="sd">            For more information, see [Supported</span>
+<span class="sd">            units](https://opensearch.org/docs/latest/api-reference/units/). Valid</span>
+<span class="sd">            choices are nanos, micros, ms, s, m, h, d.</span>
+<span class="sd">        :arg timeout: The operation timeout.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;segment_replication&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.segments"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.segments">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;bytes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">segments</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides low-level information about the segments in the shards of an index.</span>
+
+
+<span class="sd">        :arg index: A comma-separated list of data streams, indexes, and</span>
+<span class="sd">            aliases used to limit the request. Supports wildcards (`*`). To target</span>
+<span class="sd">            all data streams and indexes, omit this parameter or use `*` or `_all`.</span>
+<span class="sd">        :arg bytes: The units used to display byte values. Valid choices</span>
+<span class="sd">            are b, kb, k, mb, m, gb, g, tb, t, pb, p.</span>
+<span class="sd">        :arg cluster_manager_timeout: The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;segments&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.shards"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.shards">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;bytes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shards</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists the states of all primary and replica shards and how they are</span>
+<span class="sd">        distributed.</span>
+
+
+<span class="sd">        :arg index: A comma-separated list of data streams, indexes, and</span>
+<span class="sd">            aliases used to limit the request. Supports wildcards (`*`). To target</span>
+<span class="sd">            all data streams and indexes, omit this parameter or use `*` or `_all`.</span>
+<span class="sd">        :arg bytes: The units used to display byte values. Valid choices</span>
+<span class="sd">            are b, kb, k, mb, m, gb, g, tb, t, pb, p.</span>
+<span class="sd">        :arg cluster_manager_timeout: The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg local: Returns local information but does not retrieve the</span>
+<span class="sd">            state from the cluster manager node. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg time: Specifies the time units, for example, `5d` or `7h`.</span>
+<span class="sd">            For more information, see [Supported</span>
+<span class="sd">            units](https://opensearch.org/docs/latest/api-reference/units/). Valid</span>
+<span class="sd">            choices are nanos, micros, ms, s, m, h, d.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;shards&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.thread_pool"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.thread_pool">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;size&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">thread_pool</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">thread_pool_patterns</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns cluster-wide thread pool statistics per node. By default the active,</span>
+<span class="sd">        queued, and rejected statistics are returned for all thread pools.</span>
+
+
+<span class="sd">        :arg thread_pool_patterns: A comma-separated list of thread pool</span>
+<span class="sd">            names used to limit the request. Accepts wildcard expressions.</span>
+<span class="sd">        :arg cluster_manager_timeout: A timeout for connection to the</span>
+<span class="sd">            cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg local: Returns local information but does not retrieve the</span>
+<span class="sd">            state from the cluster manager node. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg size: The multiplier in which to display values.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;thread_pool&quot;</span><span class="p">,</span> <span class="n">thread_pool_patterns</span><span class="p">),</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.snapshots"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.snapshots">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ignore_unavailable&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">snapshots</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">repository</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists all of the snapshots stored in a specific repository.</span>
+
+
+<span class="sd">        :arg repository: A comma-separated list of snapshot repositories</span>
+<span class="sd">            used to limit the request. Accepts wildcard expressions. `_all` returns</span>
+<span class="sd">            all repositories. If any repository fails during the request, OpenSearch</span>
+<span class="sd">            returns an error.</span>
+<span class="sd">        :arg cluster_manager_timeout: The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg ignore_unavailable: When `true`, the response does not</span>
+<span class="sd">            include information from unavailable snapshots. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg time: Specifies the time units, for example, `5d` or `7h`.</span>
+<span class="sd">            For more information, see [Supported</span>
+<span class="sd">            units](https://opensearch.org/docs/latest/api-reference/units/). Valid</span>
+<span class="sd">            choices are nanos, micros, ms, s, m, h, d.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;snapshots&quot;</span><span class="p">,</span> <span class="n">repository</span><span class="p">),</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.tasks"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.tasks">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;actions&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;detailed&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nodes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parent_task_id&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tasks</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists the progress of all tasks currently running on the cluster.</span>
+
+
+<span class="sd">        :arg actions: The task action names used to limit the response.</span>
+<span class="sd">        :arg detailed: If `true`, the response includes detailed</span>
+<span class="sd">            information about shard recoveries. Default is false.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg nodes: A comma-separated list of node IDs or names used to</span>
+<span class="sd">            limit the returned information. Use `_local` to return information from</span>
+<span class="sd">            the node to which you&#39;re connecting, specify a specific node from which</span>
+<span class="sd">            to get information, or keep the parameter empty to get information from</span>
+<span class="sd">            all nodes.</span>
+<span class="sd">        :arg parent_task_id: The parent task identifier, which is used</span>
+<span class="sd">            to limit the response.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg time: Specifies the time units, for example, `5d` or `7h`.</span>
+<span class="sd">            For more information, see [Supported</span>
+<span class="sd">            units](https://opensearch.org/docs/latest/api-reference/units/). Valid</span>
+<span class="sd">            choices are nanos, micros, ms, s, m, h, d.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cat/tasks&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CatClient.templates"><a class="viewcode-back" href="../../../api-ref/clients/cat_client.html#opensearchpy.client.cat.CatClient.templates">[docs]</a>    <span class="nd">@query_params</span><span class="p">(</span>
+        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;help&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;s&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;v&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">templates</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lists the names, patterns, order numbers, and version numbers of index</span>
+<span class="sd">        templates.</span>
+
+
+<span class="sd">        :arg name: The name of the template to return. Accepts wildcard</span>
+<span class="sd">            expressions. If omitted, all templates are returned.</span>
+<span class="sd">        :arg cluster_manager_timeout: The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg error_trace: Whether to include the stack trace of returned</span>
+<span class="sd">            errors. Default is false.</span>
+<span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
+<span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
+<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">        :arg format: A short version of the `Accept` header, such as</span>
+<span class="sd">            `json` or `yaml`.</span>
+<span class="sd">        :arg h: A comma-separated list of column names to display.</span>
+<span class="sd">        :arg help: Returns help information. Default is false.</span>
+<span class="sd">        :arg human: Whether to return human-readable values for</span>
+<span class="sd">            statistics. Default is false.</span>
+<span class="sd">        :arg local: Returns local information but does not retrieve the</span>
+<span class="sd">            state from the cluster manager node. Default is false.</span>
+<span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
+<span class="sd">            use `cluster_manager_timeout` instead.): The amount of time allowed to</span>
+<span class="sd">            establish a connection to the cluster manager node.</span>
+<span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
+<span class="sd">            response. Default is false.</span>
+<span class="sd">        :arg s: A comma-separated list of column names or column aliases</span>
+<span class="sd">            to sort by.</span>
+<span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
+<span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
+<span class="sd">        :arg v: Enables verbose mode, which displays column headers.</span>
+<span class="sd">            Default is false.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
+            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cat&quot;</span><span class="p">,</span> <span class="s2">&quot;templates&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright OpenSearch Project Contributors.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
