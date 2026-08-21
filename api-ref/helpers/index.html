@@ -131,8 +131,8 @@
 <dt class="sig sig-object py" id="opensearchpy.helpers.index.Index.aliases">
 <span class="sig-name descname"><span class="pre">aliases</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/opensearchpy/helpers/index.html#Index.aliases"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#opensearchpy.helpers.index.Index.aliases" title="Link to this definition"></a></dt>
 <dd><p>Add aliases to the index definition:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="s1">&#39;blog-v2&#39;</span><span class="p">)</span>
-<span class="n">i</span><span class="o">.</span><span class="n">aliases</span><span class="p">(</span><span class="n">blog</span><span class="o">=</span><span class="p">{},</span> <span class="n">published</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;filter&#39;</span><span class="p">:</span> <span class="n">Q</span><span class="p">(</span><span class="s1">&#39;term&#39;</span><span class="p">,</span> <span class="n">published</span><span class="o">=</span><span class="kc">True</span><span class="p">)})</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="s1">'blog-v2'</span><span class="p">)</span>
+<span class="n">i</span><span class="o">.</span><span class="n">aliases</span><span class="p">(</span><span class="n">blog</span><span class="o">=</span><span class="p">{},</span> <span class="n">published</span><span class="o">=</span><span class="p">{</span><span class="s1">'filter'</span><span class="p">:</span> <span class="n">Q</span><span class="p">(</span><span class="s1">'term'</span><span class="p">,</span> <span class="n">published</span><span class="o">=</span><span class="kc">True</span><span class="p">)})</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -173,12 +173,12 @@ defined in mappings will also be created. This is useful for search analyzers.</
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">opensearchpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">analyzer</span><span class="p">,</span> <span class="n">tokenizer</span>
 
-<span class="n">my_analyzer</span> <span class="o">=</span> <span class="n">analyzer</span><span class="p">(</span><span class="s1">&#39;my_analyzer&#39;</span><span class="p">,</span>
-    <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">(</span><span class="s1">&#39;trigram&#39;</span><span class="p">,</span> <span class="s1">&#39;nGram&#39;</span><span class="p">,</span> <span class="n">min_gram</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_gram</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
-    <span class="nb">filter</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lowercase&#39;</span><span class="p">]</span>
+<span class="n">my_analyzer</span> <span class="o">=</span> <span class="n">analyzer</span><span class="p">(</span><span class="s1">'my_analyzer'</span><span class="p">,</span>
+    <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">(</span><span class="s1">'trigram'</span><span class="p">,</span> <span class="s1">'nGram'</span><span class="p">,</span> <span class="n">min_gram</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_gram</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+    <span class="nb">filter</span><span class="o">=</span><span class="p">[</span><span class="s1">'lowercase'</span><span class="p">]</span>
 <span class="p">)</span>
 
-<span class="n">i</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="s1">'blog'</span><span class="p">)</span>
 <span class="n">i</span><span class="o">.</span><span class="n">analyzer</span><span class="p">(</span><span class="n">my_analyzer</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -219,11 +219,11 @@ defined in mappings will also be created. This is useful for search analyzers.</
 <span class="sig-name descname"><span class="pre">clone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">using</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/opensearchpy/helpers/index.html#Index.clone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#opensearchpy.helpers.index.Index.clone" title="Link to this definition"></a></dt>
 <dd><p>Create a copy of the instance with another name or connection alias.
 Useful for creating multiple indices with shared configuration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="s1">&#39;base-index&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="s1">'base-index'</span><span class="p">)</span>
 <span class="n">i</span><span class="o">.</span><span class="n">settings</span><span class="p">(</span><span class="n">number_of_shards</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">i</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
 
-<span class="n">i2</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="s1">&#39;other-index&#39;</span><span class="p">)</span>
+<span class="n">i2</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="s1">'other-index'</span><span class="p">)</span>
 <span class="n">i2</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -326,7 +326,7 @@ This means that, when this index is created, it will contain the
 mappings for the <code class="docutils literal notranslate"><span class="pre">Document</span></code>. If the <code class="docutils literal notranslate"><span class="pre">Document</span></code> class doesn’t have a
 default index yet (by defining <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Index</span></code>), this instance will be
 used. Can be used as a decorator:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="s1">'blog'</span><span class="p">)</span>
 
 <span class="nd">@i</span><span class="o">.</span><span class="n">document</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Post</span><span class="p">(</span><span class="n">Document</span><span class="p">):</span>
@@ -736,7 +736,7 @@ level) is built with.</p>
 <dt class="sig sig-object py" id="opensearchpy.helpers.index.Index.settings">
 <span class="sig-name descname"><span class="pre">settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/opensearchpy/helpers/index.html#Index.settings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#opensearchpy.helpers.index.Index.settings" title="Link to this definition"></a></dt>
 <dd><p>Add settings to the index:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="s1">'i'</span><span class="p">)</span>
 <span class="n">i</span><span class="o">.</span><span class="n">settings</span><span class="p">(</span><span class="n">number_of_shards</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">number_of_replicas</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>

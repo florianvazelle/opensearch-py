@@ -162,14 +162,14 @@ the data.</p>
 body. Useful when migrating from raw dictionaries.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ubq</span> <span class="o">=</span> <span class="n">UpdateByQuery</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
-    <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;bool&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">&quot;must&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+    <span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"bool"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"must"</span><span class="p">:</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span>
         <span class="p">}</span>
     <span class="p">},</span>
-    <span class="s2">&quot;script&quot;</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+    <span class="s2">"script"</span><span class="p">:</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
 <span class="p">})</span>
-<span class="n">ubq</span> <span class="o">=</span> <span class="n">ubq</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;term&#39;</span><span class="p">,</span> <span class="n">published</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ubq</span> <span class="o">=</span> <span class="n">ubq</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">'term'</span><span class="p">,</span> <span class="n">published</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -204,10 +204,10 @@ body. Useful when migrating from raw dictionaries.</p>
 calling the script multiple times will overwrite.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ubq</span> <span class="o">=</span> <span class="n">Search</span><span class="p">()</span>
-<span class="n">ubq</span> <span class="o">=</span> <span class="n">ubq</span><span class="o">.</span><span class="n">script</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;ctx._source.likes++&quot;&quot;)</span>
-<span class="n">ubq</span> <span class="o">=</span> <span class="n">ubq</span><span class="o">.</span><span class="n">script</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;ctx._source.likes += params.f&quot;&quot;,</span>
-             <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;expression&quot;</span><span class="p">,</span>
-             <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+<span class="n">ubq</span> <span class="o">=</span> <span class="n">ubq</span><span class="o">.</span><span class="n">script</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"ctx._source.likes++"")</span>
+<span class="n">ubq</span> <span class="o">=</span> <span class="n">ubq</span><span class="o">.</span><span class="n">script</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"ctx._source.likes += params.f"",</span>
+             <span class="n">lang</span><span class="o">=</span><span class="s2">"expression"</span><span class="p">,</span>
+             <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">'f'</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
 </pre></div>
 </div>
 <dl class="field-list simple">

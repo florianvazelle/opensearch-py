@@ -93,7 +93,7 @@
 <span class="c1">#  license agreements. See the NOTICE file distributed with</span>
 <span class="c1">#  this work for additional information regarding copyright</span>
 <span class="c1">#  ownership. Elasticsearch B.V. licenses this file to you under</span>
-<span class="c1">#  the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1">#  the Apache License, Version 2.0 (the "License"); you may</span>
 <span class="c1">#  not use this file except in compliance with the License.</span>
 <span class="c1">#  You may obtain a copy of the License at</span>
 <span class="c1">#</span>
@@ -101,7 +101,7 @@
 <span class="c1">#</span>
 <span class="c1">#  Unless required by applicable law or agreed to in writing,</span>
 <span class="c1">#  software distributed under the License is distributed on an</span>
-<span class="c1">#  &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1">#  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
 <span class="c1">#  KIND, either express or implied.  See the License for the</span>
 <span class="c1">#  specific language governing permissions and limitations</span>
 <span class="c1">#  under the License.</span>
@@ -127,15 +127,15 @@
 <div class="viewcode-block" id="DanglingIndicesClient.delete_dangling_index">
 <a class="viewcode-back" href="../../../api-ref/clients/dangling_indices_client.html#opensearchpy.client.dangling_indices.DanglingIndicesClient.delete_dangling_index">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;accept_data_loss&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
+        <span class="s2">"accept_data_loss"</span><span class="p">,</span>
+        <span class="s2">"cluster_manager_timeout"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"master_timeout"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">delete_dangling_index</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -144,7 +144,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Deletes the specified dangling index.</span>
 
 
@@ -157,7 +157,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
@@ -168,13 +168,13 @@
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
 <span class="sd">        :arg timeout: Explicit operation timeout.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">index_uuid</span> <span class="ow">in</span> <span class="n">SKIP_IN_PATH</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Empty value passed for a required argument &#39;index_uuid&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Empty value passed for a required argument 'index_uuid'."</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;DELETE&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_dangling&quot;</span><span class="p">,</span> <span class="n">index_uuid</span><span class="p">),</span>
+            <span class="s2">"DELETE"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_dangling"</span><span class="p">,</span> <span class="n">index_uuid</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
         <span class="p">)</span></div>
@@ -183,15 +183,15 @@
 <div class="viewcode-block" id="DanglingIndicesClient.import_dangling_index">
 <a class="viewcode-back" href="../../../api-ref/clients/dangling_indices_client.html#opensearchpy.client.dangling_indices.DanglingIndicesClient.import_dangling_index">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;accept_data_loss&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
+        <span class="s2">"accept_data_loss"</span><span class="p">,</span>
+        <span class="s2">"cluster_manager_timeout"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"master_timeout"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">import_dangling_index</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -200,7 +200,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Imports the specified dangling index.</span>
 
 
@@ -213,7 +213,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
@@ -224,25 +224,25 @@
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
 <span class="sd">        :arg timeout: Explicit operation timeout.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">index_uuid</span> <span class="ow">in</span> <span class="n">SKIP_IN_PATH</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Empty value passed for a required argument &#39;index_uuid&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Empty value passed for a required argument 'index_uuid'."</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_dangling&quot;</span><span class="p">,</span> <span class="n">index_uuid</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+            <span class="s2">"POST"</span><span class="p">,</span> <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_dangling"</span><span class="p">,</span> <span class="n">index_uuid</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
         <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="DanglingIndicesClient.list_dangling_indices">
 <a class="viewcode-back" href="../../../api-ref/clients/dangling_indices_client.html#opensearchpy.client.dangling_indices.DanglingIndicesClient.list_dangling_indices">[docs]</a>
-    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">&quot;error_trace&quot;</span><span class="p">,</span> <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span> <span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;pretty&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">)</span>
+    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">"error_trace"</span><span class="p">,</span> <span class="s2">"filter_path"</span><span class="p">,</span> <span class="s2">"human"</span><span class="p">,</span> <span class="s2">"pretty"</span><span class="p">,</span> <span class="s2">"source"</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">list_dangling_indices</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns all dangling indexes.</span>
 
 
@@ -250,16 +250,16 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
 <span class="sd">            response. Default is false.</span>
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_dangling&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+            <span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"/_dangling"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
         <span class="p">)</span></div>
 </div>
 

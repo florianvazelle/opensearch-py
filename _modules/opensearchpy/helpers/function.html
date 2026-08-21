@@ -92,7 +92,7 @@
 <span class="c1">#  license agreements. See the NOTICE file distributed with</span>
 <span class="c1">#  this work for additional information regarding copyright</span>
 <span class="c1">#  ownership. Elasticsearch B.V. licenses this file to you under</span>
-<span class="c1">#  the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1">#  the Apache License, Version 2.0 (the "License"); you may</span>
 <span class="c1">#  not use this file except in compliance with the License.</span>
 <span class="c1">#  You may obtain a copy of the License at</span>
 <span class="c1">#</span>
@@ -100,7 +100,7 @@
 <span class="c1">#</span>
 <span class="c1">#  Unless required by applicable law or agreed to in writing,</span>
 <span class="c1">#  software distributed under the License is distributed on an</span>
-<span class="c1">#  &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1">#  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
 <span class="c1">#  KIND, either express or implied.  See the License for the</span>
 <span class="c1">#  specific language governing permissions and limitations</span>
 <span class="c1">#  under the License.</span>
@@ -112,10 +112,10 @@
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">SF</span><span class="p">(</span><span class="n">name_or_sf</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>  <span class="c1"># pylint: disable=invalid-name</span>
-    <span class="c1"># {&quot;script_score&quot;: {&quot;script&quot;: &quot;_score&quot;}, &quot;filter&quot;: {}}</span>
+    <span class="c1"># {"script_score": {"script": "_score"}, "filter": {}}</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name_or_sf</span><span class="p">,</span> <span class="n">collections_abc</span><span class="o">.</span><span class="n">Mapping</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">params</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;SF() cannot accept parameters when passing in a dict.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"SF() cannot accept parameters when passing in a dict."</span><span class="p">)</span>
         <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">sf</span> <span class="o">=</span> <span class="n">name_or_sf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ScoreFunction</span><span class="o">.</span><span class="n">_param_defs</span><span class="p">:</span>
@@ -124,42 +124,42 @@
 
         <span class="c1"># not sf, so just filter+weight, which used to be boost factor</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">sf</span><span class="p">:</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;boost_factor&quot;</span>
-        <span class="c1"># {&#39;FUNCTION&#39;: {...}}</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">"boost_factor"</span>
+        <span class="c1"># {'FUNCTION': {...}}</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">name</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SF() got an unexpected fields in the dictionary: </span><span class="si">{</span><span class="n">sf</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SF() got an unexpected fields in the dictionary: </span><span class="si">{</span><span class="n">sf</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
 
         <span class="c1"># boost factor special case, see https://github.com/elastic/elasticsearch/issues/6343</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">collections_abc</span><span class="o">.</span><span class="n">Mapping</span><span class="p">):</span>
-            <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">params</span><span class="p">}</span>
+            <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"value"</span><span class="p">:</span> <span class="n">params</span><span class="p">}</span>
 
         <span class="c1"># mix known params (from _param_defs) and from inside the function</span>
         <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ScoreFunction</span><span class="o">.</span><span class="n">get_dsl_class</span><span class="p">(</span><span class="n">name</span><span class="p">)(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-    <span class="c1"># ScriptScore(script=&quot;_score&quot;, filter=Q())</span>
+    <span class="c1"># ScriptScore(script="_score", filter=Q())</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name_or_sf</span><span class="p">,</span> <span class="n">ScoreFunction</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">params</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">&quot;SF() cannot accept parameters when passing in a ScoreFunction object.&quot;</span>
+                <span class="s2">"SF() cannot accept parameters when passing in a ScoreFunction object."</span>
             <span class="p">)</span>
         <span class="k">return</span> <span class="n">name_or_sf</span>
 
-    <span class="c1"># &quot;script_score&quot;, script=&quot;_score&quot;, filter=Q()</span>
+    <span class="c1"># "script_score", script="_score", filter=Q()</span>
     <span class="k">return</span> <span class="n">ScoreFunction</span><span class="o">.</span><span class="n">get_dsl_class</span><span class="p">(</span><span class="n">name_or_sf</span><span class="p">)(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="ScoreFunction">
 <a class="viewcode-back" href="../../../api-ref/helpers/function.html#opensearchpy.helpers.function.ScoreFunction">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">ScoreFunction</span><span class="p">(</span><span class="n">DslBase</span><span class="p">):</span>
-    <span class="n">_type_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;score_function&quot;</span>
+    <span class="n">_type_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"score_function"</span>
     <span class="n">_type_shortcut</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">SF</span><span class="p">)</span>
     <span class="n">_param_defs</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;query&quot;</span><span class="p">},</span>
-        <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;query&quot;</span><span class="p">},</span>
-        <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"query"</span><span class="p">},</span>
+        <span class="s2">"filter"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"query"</span><span class="p">},</span>
+        <span class="s2">"weight"</span><span class="p">:</span> <span class="p">{},</span>
     <span class="p">}</span>
     <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -177,39 +177,39 @@
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">ScriptScore</span><span class="p">(</span><span class="n">ScoreFunction</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;script_score&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"script_score"</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">BoostFactor</span><span class="p">(</span><span class="n">ScoreFunction</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;boost_factor&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"boost_factor"</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="n">d</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
-        <span class="k">if</span> <span class="s2">&quot;value&quot;</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
-            <span class="n">d</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">"value"</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
+            <span class="n">d</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"value"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">d</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">RandomScore</span><span class="p">(</span><span class="n">ScoreFunction</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;random_score&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"random_score"</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">FieldValueFactor</span><span class="p">(</span><span class="n">ScoreFunction</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;field_value_factor&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"field_value_factor"</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Linear</span><span class="p">(</span><span class="n">ScoreFunction</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"linear"</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Gauss</span><span class="p">(</span><span class="n">ScoreFunction</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;gauss&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"gauss"</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Exp</span><span class="p">(</span><span class="n">ScoreFunction</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;exp&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"exp"</span>
 </pre></div>
 
            </div>

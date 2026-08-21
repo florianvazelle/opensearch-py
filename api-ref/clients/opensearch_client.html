@@ -131,9 +131,9 @@ the <code class="docutils literal notranslate"><span class="pre">connection_clas
 in <a class="reference internal" href="../transport.html#opensearchpy.Transport" title="opensearchpy.Transport"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transport</span></code></a>):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># create connection that will automatically inspect the cluster to get</span>
 <span class="c1"># the list of active nodes. Start with nodes running on</span>
-<span class="c1"># &#39;opensearchnode1&#39; and &#39;opensearchnode2&#39;</span>
+<span class="c1"># 'opensearchnode1' and 'opensearchnode2'</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">(</span>
-    <span class="p">[</span><span class="s1">&#39;opensearchnode1&#39;</span><span class="p">,</span> <span class="s1">&#39;opensearchnode2&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">'opensearchnode1'</span><span class="p">,</span> <span class="s1">'opensearchnode2'</span><span class="p">],</span>
     <span class="c1"># sniff before doing anything</span>
     <span class="n">sniff_on_start</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="c1"># refresh nodes after a node fails to respond</span>
@@ -148,8 +148,8 @@ specify those:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># connect to localhost directly and another node using SSL on port 443</span>
 <span class="c1"># and an url_prefix. Note that ``port`` needs to be an int.</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">([</span>
-    <span class="p">{</span><span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">},</span>
-    <span class="p">{</span><span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;othernode&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span> <span class="s1">&#39;url_prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;opensearch&#39;</span><span class="p">,</span> <span class="s1">&#39;use_ssl&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">'host'</span><span class="p">:</span> <span class="s1">'localhost'</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">'host'</span><span class="p">:</span> <span class="s1">'othernode'</span><span class="p">,</span> <span class="s1">'port'</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span> <span class="s1">'url_prefix'</span><span class="p">:</span> <span class="s1">'opensearch'</span><span class="p">,</span> <span class="s1">'use_ssl'</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
 <span class="p">])</span>
 </pre></div>
 </div>
@@ -157,13 +157,13 @@ specify those:</p>
 certificates (see <a class="reference internal" href="../connection.html#opensearchpy.AIOHttpConnection" title="opensearchpy.AIOHttpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">AIOHttpConnection</span></code></a> for
 detailed description of the options):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">(</span>
-    <span class="p">[</span><span class="s1">&#39;localhost:443&#39;</span><span class="p">,</span> <span class="s1">&#39;other_host:443&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">'localhost:443'</span><span class="p">,</span> <span class="s1">'other_host:443'</span><span class="p">],</span>
     <span class="c1"># turn on SSL</span>
     <span class="n">use_ssl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="c1"># make sure we verify SSL certificates</span>
     <span class="n">verify_certs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="c1"># provide a path to CA certs on disk</span>
-    <span class="n">ca_certs</span><span class="o">=</span><span class="s1">&#39;/path/to/CA_certs&#39;</span>
+    <span class="n">ca_certs</span><span class="o">=</span><span class="s1">'/path/to/CA_certs'</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -171,14 +171,14 @@ detailed description of the options):</p>
 optionally (see <a class="reference internal" href="../connection.html#opensearchpy.AIOHttpConnection" title="opensearchpy.AIOHttpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">AIOHttpConnection</span></code></a> for
 detailed description of the options):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">(</span>
-    <span class="p">[</span><span class="s1">&#39;localhost:443&#39;</span><span class="p">,</span> <span class="s1">&#39;other_host:443&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">'localhost:443'</span><span class="p">,</span> <span class="s1">'other_host:443'</span><span class="p">],</span>
     <span class="c1"># turn on SSL</span>
     <span class="n">use_ssl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="c1"># no verify SSL certificates</span>
     <span class="n">verify_certs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="c1"># don&#39;t verify the hostname in the certificate</span>
+    <span class="c1"># don't verify the hostname in the certificate</span>
     <span class="n">ssl_assert_hostname</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="c1"># don&#39;t show warnings about ssl certs verification</span>
+    <span class="c1"># don't show warnings about ssl certs verification</span>
     <span class="n">ssl_show_warn</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 </pre></div>
@@ -187,17 +187,17 @@ detailed description of the options):</p>
 (see <a class="reference internal" href="../connection.html#opensearchpy.AIOHttpConnection" title="opensearchpy.AIOHttpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">AIOHttpConnection</span></code></a> for
 detailed description of the options):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">(</span>
-    <span class="p">[</span><span class="s1">&#39;localhost:443&#39;</span><span class="p">,</span> <span class="s1">&#39;other_host:443&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">'localhost:443'</span><span class="p">,</span> <span class="s1">'other_host:443'</span><span class="p">],</span>
     <span class="c1"># turn on SSL</span>
     <span class="n">use_ssl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="c1"># make sure we verify SSL certificates</span>
     <span class="n">verify_certs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="c1"># provide a path to CA certs on disk</span>
-    <span class="n">ca_certs</span><span class="o">=</span><span class="s1">&#39;/path/to/CA_certs&#39;</span><span class="p">,</span>
+    <span class="n">ca_certs</span><span class="o">=</span><span class="s1">'/path/to/CA_certs'</span><span class="p">,</span>
     <span class="c1"># PEM formatted SSL client certificate</span>
-    <span class="n">client_cert</span><span class="o">=</span><span class="s1">&#39;/path/to/clientcert.pem&#39;</span><span class="p">,</span>
+    <span class="n">client_cert</span><span class="o">=</span><span class="s1">'/path/to/clientcert.pem'</span><span class="p">,</span>
     <span class="c1"># PEM formatted SSL client key</span>
-    <span class="n">client_key</span><span class="o">=</span><span class="s1">&#39;/path/to/clientkey.pem&#39;</span>
+    <span class="n">client_key</span><span class="o">=</span><span class="s1">'/path/to/clientkey.pem'</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -205,8 +205,8 @@ detailed description of the options):</p>
 in conflict with other options:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">(</span>
     <span class="p">[</span>
-        <span class="s1">&#39;http://user:secret@localhost:9200/&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;https://user:secret@other_host:443/production&#39;</span>
+        <span class="s1">'http://user:secret@localhost:9200/'</span><span class="p">,</span>
+        <span class="s1">'https://user:secret@other_host:443/production'</span>
     <span class="p">],</span>
     <span class="n">verify_certs</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
@@ -222,7 +222,7 @@ However, you can implement your own custom serializer:</p>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">set</span><span class="p">):</span>
             <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Something</span><span class="p">):</span>
-            <span class="k">return</span> <span class="s1">&#39;CustomSomethingRepresentation&#39;</span>
+            <span class="k">return</span> <span class="s1">'CustomSomethingRepresentation'</span>
         <span class="k">return</span> <span class="n">JSONSerializer</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">(</span><span class="n">serializer</span><span class="o">=</span><span class="n">SetEncoder</span><span class="p">())</span>
@@ -2615,9 +2615,9 @@ the <code class="docutils literal notranslate"><span class="pre">connection_clas
 in <a class="reference internal" href="../transport.html#opensearchpy.Transport" title="opensearchpy.Transport"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transport</span></code></a>):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># create connection that will automatically inspect the cluster to get</span>
 <span class="c1"># the list of active nodes. Start with nodes running on</span>
-<span class="c1"># &#39;opensearchnode1&#39; and &#39;opensearchnode2&#39;</span>
+<span class="c1"># 'opensearchnode1' and 'opensearchnode2'</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">(</span>
-    <span class="p">[</span><span class="s1">&#39;opensearchnode1&#39;</span><span class="p">,</span> <span class="s1">&#39;opensearchnode2&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">'opensearchnode1'</span><span class="p">,</span> <span class="s1">'opensearchnode2'</span><span class="p">],</span>
     <span class="c1"># sniff before doing anything</span>
     <span class="n">sniff_on_start</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="c1"># refresh nodes after a node fails to respond</span>
@@ -2632,8 +2632,8 @@ specify those:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># connect to localhost directly and another node using SSL on port 443</span>
 <span class="c1"># and an url_prefix. Note that ``port`` needs to be an int.</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">([</span>
-    <span class="p">{</span><span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">},</span>
-    <span class="p">{</span><span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;othernode&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span> <span class="s1">&#39;url_prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;opensearch&#39;</span><span class="p">,</span> <span class="s1">&#39;use_ssl&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">'host'</span><span class="p">:</span> <span class="s1">'localhost'</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">'host'</span><span class="p">:</span> <span class="s1">'othernode'</span><span class="p">,</span> <span class="s1">'port'</span><span class="p">:</span> <span class="mi">443</span><span class="p">,</span> <span class="s1">'url_prefix'</span><span class="p">:</span> <span class="s1">'opensearch'</span><span class="p">,</span> <span class="s1">'use_ssl'</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
 <span class="p">])</span>
 </pre></div>
 </div>
@@ -2641,13 +2641,13 @@ specify those:</p>
 certificates (see <a class="reference internal" href="../connection.html#opensearchpy.AIOHttpConnection" title="opensearchpy.AIOHttpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">AIOHttpConnection</span></code></a> for
 detailed description of the options):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">(</span>
-    <span class="p">[</span><span class="s1">&#39;localhost:443&#39;</span><span class="p">,</span> <span class="s1">&#39;other_host:443&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">'localhost:443'</span><span class="p">,</span> <span class="s1">'other_host:443'</span><span class="p">],</span>
     <span class="c1"># turn on SSL</span>
     <span class="n">use_ssl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="c1"># make sure we verify SSL certificates</span>
     <span class="n">verify_certs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="c1"># provide a path to CA certs on disk</span>
-    <span class="n">ca_certs</span><span class="o">=</span><span class="s1">&#39;/path/to/CA_certs&#39;</span>
+    <span class="n">ca_certs</span><span class="o">=</span><span class="s1">'/path/to/CA_certs'</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -2655,14 +2655,14 @@ detailed description of the options):</p>
 optionally (see <a class="reference internal" href="../connection.html#opensearchpy.AIOHttpConnection" title="opensearchpy.AIOHttpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">AIOHttpConnection</span></code></a> for
 detailed description of the options):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">(</span>
-    <span class="p">[</span><span class="s1">&#39;localhost:443&#39;</span><span class="p">,</span> <span class="s1">&#39;other_host:443&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">'localhost:443'</span><span class="p">,</span> <span class="s1">'other_host:443'</span><span class="p">],</span>
     <span class="c1"># turn on SSL</span>
     <span class="n">use_ssl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="c1"># no verify SSL certificates</span>
     <span class="n">verify_certs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="c1"># don&#39;t verify the hostname in the certificate</span>
+    <span class="c1"># don't verify the hostname in the certificate</span>
     <span class="n">ssl_assert_hostname</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="c1"># don&#39;t show warnings about ssl certs verification</span>
+    <span class="c1"># don't show warnings about ssl certs verification</span>
     <span class="n">ssl_show_warn</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 </pre></div>
@@ -2671,17 +2671,17 @@ detailed description of the options):</p>
 (see <a class="reference internal" href="../connection.html#opensearchpy.AIOHttpConnection" title="opensearchpy.AIOHttpConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">AIOHttpConnection</span></code></a> for
 detailed description of the options):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">(</span>
-    <span class="p">[</span><span class="s1">&#39;localhost:443&#39;</span><span class="p">,</span> <span class="s1">&#39;other_host:443&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">'localhost:443'</span><span class="p">,</span> <span class="s1">'other_host:443'</span><span class="p">],</span>
     <span class="c1"># turn on SSL</span>
     <span class="n">use_ssl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="c1"># make sure we verify SSL certificates</span>
     <span class="n">verify_certs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="c1"># provide a path to CA certs on disk</span>
-    <span class="n">ca_certs</span><span class="o">=</span><span class="s1">&#39;/path/to/CA_certs&#39;</span><span class="p">,</span>
+    <span class="n">ca_certs</span><span class="o">=</span><span class="s1">'/path/to/CA_certs'</span><span class="p">,</span>
     <span class="c1"># PEM formatted SSL client certificate</span>
-    <span class="n">client_cert</span><span class="o">=</span><span class="s1">&#39;/path/to/clientcert.pem&#39;</span><span class="p">,</span>
+    <span class="n">client_cert</span><span class="o">=</span><span class="s1">'/path/to/clientcert.pem'</span><span class="p">,</span>
     <span class="c1"># PEM formatted SSL client key</span>
-    <span class="n">client_key</span><span class="o">=</span><span class="s1">&#39;/path/to/clientkey.pem&#39;</span>
+    <span class="n">client_key</span><span class="o">=</span><span class="s1">'/path/to/clientkey.pem'</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -2689,8 +2689,8 @@ detailed description of the options):</p>
 in conflict with other options:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">(</span>
     <span class="p">[</span>
-        <span class="s1">&#39;http://user:secret@localhost:9200/&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;https://user:secret@other_host:443/production&#39;</span>
+        <span class="s1">'http://user:secret@localhost:9200/'</span><span class="p">,</span>
+        <span class="s1">'https://user:secret@other_host:443/production'</span>
     <span class="p">],</span>
     <span class="n">verify_certs</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
@@ -2706,7 +2706,7 @@ However, you can implement your own custom serializer:</p>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">set</span><span class="p">):</span>
             <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Something</span><span class="p">):</span>
-            <span class="k">return</span> <span class="s1">&#39;CustomSomethingRepresentation&#39;</span>
+            <span class="k">return</span> <span class="s1">'CustomSomethingRepresentation'</span>
         <span class="k">return</span> <span class="n">JSONSerializer</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">OpenSearch</span><span class="p">(</span><span class="n">serializer</span><span class="o">=</span><span class="n">SetEncoder</span><span class="p">())</span>

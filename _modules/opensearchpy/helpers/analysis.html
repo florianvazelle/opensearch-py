@@ -92,7 +92,7 @@
 <span class="c1">#  license agreements. See the NOTICE file distributed with</span>
 <span class="c1">#  this work for additional information regarding copyright</span>
 <span class="c1">#  ownership. Elasticsearch B.V. licenses this file to you under</span>
-<span class="c1">#  the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1">#  the Apache License, Version 2.0 (the "License"); you may</span>
 <span class="c1">#  not use this file except in compliance with the License.</span>
 <span class="c1">#  You may obtain a copy of the License at</span>
 <span class="c1">#</span>
@@ -100,7 +100,7 @@
 <span class="c1">#</span>
 <span class="c1">#  Unless required by applicable law or agreed to in writing,</span>
 <span class="c1">#  software distributed under the License is distributed on an</span>
-<span class="c1">#  &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1">#  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
 <span class="c1">#  KIND, either express or implied.  See the License for the</span>
 <span class="c1">#  specific language governing permissions and limitations</span>
 <span class="c1">#  under the License.</span>
@@ -119,22 +119,22 @@
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name_or_instance</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
             <span class="k">if</span> <span class="nb">type</span> <span class="ow">or</span> <span class="n">kwargs</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">() cannot accept parameters.&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">() cannot accept parameters."</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">name_or_instance</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">type</span> <span class="ow">or</span> <span class="n">kwargs</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_dsl_class</span><span class="p">(</span><span class="s2">&quot;builtin&quot;</span><span class="p">)(</span><span class="n">name_or_instance</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_dsl_class</span><span class="p">(</span><span class="s2">"builtin"</span><span class="p">)(</span><span class="n">name_or_instance</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_dsl_class</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="s2">&quot;custom&quot;</span><span class="p">)(</span>
-            <span class="n">name_or_instance</span><span class="p">,</span> <span class="nb">type</span> <span class="ow">or</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_dsl_class</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">)(</span>
+            <span class="n">name_or_instance</span><span class="p">,</span> <span class="nb">type</span> <span class="ow">or</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">CustomAnalysis</span><span class="p">:</span>
-    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;custom&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"custom"</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">filter_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">builtin_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">filter_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">builtin_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_builtin_type</span> <span class="o">=</span> <span class="n">builtin_type</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">filter_name</span>
@@ -147,7 +147,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="n">d</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="n">d</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_builtin_type</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_builtin_type</span>
         <span class="k">return</span> <span class="n">d</span>
 
 
@@ -155,21 +155,21 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">get_analysis_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="n">out</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_type_name</span><span class="p">:</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_definition</span><span class="p">()}}</span>
 
-        <span class="n">t</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;tokenizer&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s2">&quot;tokenizer&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_param_defs</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="s2">&quot;get_definition&quot;</span><span class="p">):</span>
-            <span class="n">out</span><span class="p">[</span><span class="s2">&quot;tokenizer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">get_definition</span><span class="p">()}</span>
+        <span class="n">t</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"tokenizer"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">"tokenizer"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_param_defs</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="s2">"get_definition"</span><span class="p">):</span>
+            <span class="n">out</span><span class="p">[</span><span class="s2">"tokenizer"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">get_definition</span><span class="p">()}</span>
 
         <span class="n">filters</span> <span class="o">=</span> <span class="p">{</span>
             <span class="n">f</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">get_definition</span><span class="p">()</span>
             <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;get_definition&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">"get_definition"</span><span class="p">)</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="n">filters</span><span class="p">:</span>
-            <span class="n">out</span><span class="p">[</span><span class="s2">&quot;filter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filters</span>
+            <span class="n">out</span><span class="p">[</span><span class="s2">"filter"</span><span class="p">]</span> <span class="o">=</span> <span class="n">filters</span>
 
         <span class="c1"># any sub filter definitions like multiplexers etc?</span>
         <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;get_analysis_definition&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">"get_analysis_definition"</span><span class="p">):</span>
                 <span class="n">d</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get_analysis_definition</span><span class="p">()</span>
                 <span class="k">if</span> <span class="n">d</span><span class="p">:</span>
                     <span class="n">merge</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
@@ -177,16 +177,16 @@
         <span class="n">char_filters</span> <span class="o">=</span> <span class="p">{</span>
             <span class="n">f</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">get_definition</span><span class="p">()</span>
             <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">char_filter</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;get_definition&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">"get_definition"</span><span class="p">)</span>
         <span class="p">}</span>
         <span class="k">if</span> <span class="n">char_filters</span><span class="p">:</span>
-            <span class="n">out</span><span class="p">[</span><span class="s2">&quot;char_filter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">char_filters</span>
+            <span class="n">out</span><span class="p">[</span><span class="s2">"char_filter"</span><span class="p">]</span> <span class="o">=</span> <span class="n">char_filters</span>
 
         <span class="k">return</span> <span class="n">out</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">BuiltinAnalysis</span><span class="p">:</span>
-    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;builtin&quot;</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"builtin"</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
@@ -200,7 +200,7 @@
 <div class="viewcode-block" id="Analyzer">
 <a class="viewcode-back" href="../../../api-ref/helpers/analysis.html#opensearchpy.helpers.analysis.Analyzer">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Analyzer</span><span class="p">(</span><span class="n">AnalysisBase</span><span class="p">,</span> <span class="n">DslBase</span><span class="p">):</span>
-    <span class="n">_type_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;analyzer&quot;</span>
+    <span class="n">_type_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"analyzer"</span>
     <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span></div>
 
 
@@ -212,39 +212,39 @@
 
 <span class="k">class</span><span class="w"> </span><span class="nc">CustomAnalyzer</span><span class="p">(</span><span class="n">CustomAnalysisDefinition</span><span class="p">,</span> <span class="n">Analyzer</span><span class="p">):</span>
     <span class="n">_param_defs</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;token_filter&quot;</span><span class="p">,</span> <span class="s2">&quot;multi&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
-        <span class="s2">&quot;char_filter&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;char_filter&quot;</span><span class="p">,</span> <span class="s2">&quot;multi&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
-        <span class="s2">&quot;tokenizer&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tokenizer&quot;</span><span class="p">},</span>
+        <span class="s2">"filter"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"token_filter"</span><span class="p">,</span> <span class="s2">"multi"</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="s2">"char_filter"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"char_filter"</span><span class="p">,</span> <span class="s2">"multi"</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="s2">"tokenizer"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"tokenizer"</span><span class="p">},</span>
     <span class="p">}</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">simulate</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">text</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
-        <span class="n">using</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+        <span class="n">using</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"default"</span><span class="p">,</span>
         <span class="n">explain</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">attributes</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Use the Analyze API of opensearch to test the outcome of this analyzer.</span>
 
 <span class="sd">        :arg text: Text to be analyzed</span>
-<span class="sd">        :arg using: connection alias to use, defaults to ``&#39;default&#39;``</span>
+<span class="sd">        :arg using: connection alias to use, defaults to ``'default'``</span>
 <span class="sd">        :arg explain: will output all token attributes for each token. You can</span>
 <span class="sd">            filter token attributes you want to output by setting ``attributes``</span>
 <span class="sd">            option.</span>
 <span class="sd">        :arg attributes: if ``explain`` is specified, filter the token</span>
 <span class="sd">            attributes to return.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">opensearch</span> <span class="o">=</span> <span class="n">get_connection</span><span class="p">(</span><span class="n">using</span><span class="p">)</span>
 
-        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">text</span><span class="p">,</span> <span class="s2">&quot;explain&quot;</span><span class="p">:</span> <span class="n">explain</span><span class="p">}</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"text"</span><span class="p">:</span> <span class="n">text</span><span class="p">,</span> <span class="s2">"explain"</span><span class="p">:</span> <span class="n">explain</span><span class="p">}</span>
         <span class="k">if</span> <span class="n">attributes</span><span class="p">:</span>
-            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;attributes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">attributes</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">"attributes"</span><span class="p">]</span> <span class="o">=</span> <span class="n">attributes</span>
 
         <span class="n">definition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_analysis_definition</span><span class="p">()</span>
         <span class="n">analyzer_def</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_definition</span><span class="p">()</span>
 
-        <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;tokenizer&quot;</span><span class="p">,</span> <span class="s2">&quot;char_filter&quot;</span><span class="p">,</span> <span class="s2">&quot;filter&quot;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"tokenizer"</span><span class="p">,</span> <span class="s2">"char_filter"</span><span class="p">,</span> <span class="s2">"filter"</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">section</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">analyzer_def</span><span class="p">:</span>
                 <span class="k">continue</span>
             <span class="n">sec_def</span> <span class="o">=</span> <span class="n">definition</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="p">{})</span>
@@ -257,14 +257,14 @@
                     <span class="n">sec_def</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sec_name</span><span class="p">,</span> <span class="n">sec_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">sec_name</span> <span class="ow">in</span> <span class="n">sec_names</span>
                 <span class="p">]</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_builtin_type</span> <span class="o">!=</span> <span class="s2">&quot;custom&quot;</span><span class="p">:</span>
-            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;analyzer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_builtin_type</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_builtin_type</span> <span class="o">!=</span> <span class="s2">"custom"</span><span class="p">:</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">"analyzer"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_builtin_type</span>
 
         <span class="k">return</span> <span class="n">AttrDict</span><span class="p">(</span><span class="n">opensearch</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">))</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Normalizer</span><span class="p">(</span><span class="n">AnalysisBase</span><span class="p">,</span> <span class="n">DslBase</span><span class="p">):</span>
-    <span class="n">_type_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;normalizer&quot;</span>
+    <span class="n">_type_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"normalizer"</span>
     <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
@@ -275,13 +275,13 @@
 
 <span class="k">class</span><span class="w"> </span><span class="nc">CustomNormalizer</span><span class="p">(</span><span class="n">CustomAnalysisDefinition</span><span class="p">,</span> <span class="n">Normalizer</span><span class="p">):</span>
     <span class="n">_param_defs</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;token_filter&quot;</span><span class="p">,</span> <span class="s2">&quot;multi&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
-        <span class="s2">&quot;char_filter&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;char_filter&quot;</span><span class="p">,</span> <span class="s2">&quot;multi&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="s2">"filter"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"token_filter"</span><span class="p">,</span> <span class="s2">"multi"</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="s2">"char_filter"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"type"</span><span class="p">:</span> <span class="s2">"char_filter"</span><span class="p">,</span> <span class="s2">"multi"</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
     <span class="p">}</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Tokenizer</span><span class="p">(</span><span class="n">AnalysisBase</span><span class="p">,</span> <span class="n">DslBase</span><span class="p">):</span>
-    <span class="n">_type_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tokenizer&quot;</span>
+    <span class="n">_type_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"tokenizer"</span>
     <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
@@ -294,7 +294,7 @@
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">TokenFilter</span><span class="p">(</span><span class="n">AnalysisBase</span><span class="p">,</span> <span class="n">DslBase</span><span class="p">):</span>
-    <span class="n">_type_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;token_filter&quot;</span>
+    <span class="n">_type_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"token_filter"</span>
     <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
@@ -307,31 +307,31 @@
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">MultiplexerTokenFilter</span><span class="p">(</span><span class="n">CustomTokenFilter</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;multiplexer&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"multiplexer"</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">get_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="n">d</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">CustomTokenFilter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_definition</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="s2">&quot;filters&quot;</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
-            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;filters&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="k">if</span> <span class="s2">"filters"</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">"filters"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
                 <span class="c1"># comma delimited string given by user</span>
                 <span class="p">(</span>
                     <span class="n">fs</span>
                     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
                     <span class="k">else</span>
                     <span class="c1"># list of strings or TokenFilter objects</span>
-                    <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;to_dict&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fs</span><span class="p">)</span>
+                    <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">"to_dict"</span><span class="p">)</span> <span class="k">else</span> <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fs</span><span class="p">)</span>
                 <span class="p">)</span>
                 <span class="k">for</span> <span class="n">fs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filters</span>
             <span class="p">]</span>
         <span class="k">return</span> <span class="n">d</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">get_analysis_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;filters&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"filters"</span><span class="p">):</span>
             <span class="k">return</span> <span class="p">{}</span>
 
         <span class="n">fs</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="n">fs</span><span class="p">}</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"filter"</span><span class="p">:</span> <span class="n">fs</span><span class="p">}</span>
         <span class="k">for</span> <span class="n">filters</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filters</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
                 <span class="k">continue</span>
@@ -339,38 +339,38 @@
                 <span class="p">{</span>
                     <span class="n">f</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">get_definition</span><span class="p">()</span>
                     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">filters</span>
-                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;get_definition&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">"get_definition"</span><span class="p">)</span>
                 <span class="p">}</span>
             <span class="p">)</span>
         <span class="k">return</span> <span class="n">d</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">ConditionalTokenFilter</span><span class="p">(</span><span class="n">CustomTokenFilter</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;condition&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"condition"</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">get_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="n">d</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">CustomTokenFilter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_definition</span><span class="p">()</span>
-        <span class="k">if</span> <span class="s2">&quot;filter&quot;</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
-            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;filter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">f</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;to_dict&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span>
+        <span class="k">if</span> <span class="s2">"filter"</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">"filter"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">"to_dict"</span><span class="p">)</span> <span class="k">else</span> <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span>
             <span class="p">]</span>
         <span class="k">return</span> <span class="n">d</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">get_analysis_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;filter&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"filter"</span><span class="p">):</span>
             <span class="k">return</span> <span class="p">{}</span>
 
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"filter"</span><span class="p">:</span> <span class="p">{</span>
                 <span class="n">f</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">get_definition</span><span class="p">()</span>
                 <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter</span>
-                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">&quot;get_definition&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s2">"get_definition"</span><span class="p">)</span>
             <span class="p">}</span>
         <span class="p">}</span>
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">CharFilter</span><span class="p">(</span><span class="n">AnalysisBase</span><span class="p">,</span> <span class="n">DslBase</span><span class="p">):</span>
-    <span class="n">_type_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;char_filter&quot;</span>
+    <span class="n">_type_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"char_filter"</span>
     <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
@@ -389,7 +389,7 @@
 <span class="n">char_filter</span> <span class="o">=</span> <span class="n">CharFilter</span><span class="o">.</span><span class="n">_type_shortcut</span>
 <span class="n">normalizer</span> <span class="o">=</span> <span class="n">Normalizer</span><span class="o">.</span><span class="n">_type_shortcut</span>
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tokenizer&quot;</span><span class="p">,</span> <span class="s2">&quot;analyzer&quot;</span><span class="p">,</span> <span class="s2">&quot;char_filter&quot;</span><span class="p">,</span> <span class="s2">&quot;token_filter&quot;</span><span class="p">,</span> <span class="s2">&quot;normalizer&quot;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"tokenizer"</span><span class="p">,</span> <span class="s2">"analyzer"</span><span class="p">,</span> <span class="s2">"char_filter"</span><span class="p">,</span> <span class="s2">"token_filter"</span><span class="p">,</span> <span class="s2">"normalizer"</span><span class="p">]</span>
 </pre></div>
 
            </div>

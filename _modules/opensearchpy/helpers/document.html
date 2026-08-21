@@ -92,7 +92,7 @@
 <span class="c1">#  license agreements. See the NOTICE file distributed with</span>
 <span class="c1">#  this work for additional information regarding copyright</span>
 <span class="c1">#  ownership. Elasticsearch B.V. licenses this file to you under</span>
-<span class="c1">#  the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1">#  the Apache License, Version 2.0 (the "License"); you may</span>
 <span class="c1">#  not use this file except in compliance with the License.</span>
 <span class="c1">#  You may obtain a copy of the License at</span>
 <span class="c1">#</span>
@@ -100,7 +100,7 @@
 <span class="c1">#</span>
 <span class="c1">#  Unless required by applicable law or agreed to in writing,</span>
 <span class="c1">#  software distributed under the License is distributed on an</span>
-<span class="c1">#  &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1">#  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
 <span class="c1">#  KIND, either express or implied.  See the License for the</span>
 <span class="c1">#  specific language governing permissions and limitations</span>
 <span class="c1">#  under the License.</span>
@@ -133,7 +133,7 @@
         <span class="n">attrs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="c1"># DocumentMeta filters attrs in place</span>
-        <span class="n">attrs</span><span class="p">[</span><span class="s2">&quot;_doc_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DocumentOptions</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
+        <span class="n">attrs</span><span class="p">[</span><span class="s2">"_doc_type"</span><span class="p">]</span> <span class="o">=</span> <span class="n">DocumentOptions</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
 
 
@@ -150,7 +150,7 @@
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="n">new_cls</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_document_initialized</span><span class="p">:</span>
-            <span class="n">index_opts</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Index&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">index_opts</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"Index"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
             <span class="n">index</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">construct_index</span><span class="p">(</span><span class="n">index_opts</span><span class="p">,</span> <span class="n">bases</span><span class="p">)</span>
             <span class="n">new_cls</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="n">index</span>
             <span class="n">index</span><span class="o">.</span><span class="n">document</span><span class="p">(</span><span class="n">new_cls</span><span class="p">)</span>
@@ -161,16 +161,16 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">construct_index</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">opts</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">bases</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">opts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">:</span>
-                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s2">&quot;_index&quot;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s2">"_index"</span><span class="p">):</span>
                     <span class="k">return</span> <span class="n">b</span><span class="o">.</span><span class="n">_index</span>
 
             <span class="c1"># Set None as Index name so it will set _all while making the query</span>
             <span class="k">return</span> <span class="n">Index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
-        <span class="n">i</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">),</span> <span class="n">using</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="s2">&quot;using&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">))</span>
-        <span class="n">i</span><span class="o">.</span><span class="n">settings</span><span class="p">(</span><span class="o">**</span><span class="nb">getattr</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="s2">&quot;settings&quot;</span><span class="p">,</span> <span class="p">{}))</span>
-        <span class="n">i</span><span class="o">.</span><span class="n">aliases</span><span class="p">(</span><span class="o">**</span><span class="nb">getattr</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="s2">&quot;aliases&quot;</span><span class="p">,</span> <span class="p">{}))</span>
-        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="s2">&quot;analyzers&quot;</span><span class="p">,</span> <span class="p">()):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">),</span> <span class="n">using</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="s2">"using"</span><span class="p">,</span> <span class="s2">"default"</span><span class="p">))</span>
+        <span class="n">i</span><span class="o">.</span><span class="n">settings</span><span class="p">(</span><span class="o">**</span><span class="nb">getattr</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="s2">"settings"</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="n">i</span><span class="o">.</span><span class="n">aliases</span><span class="p">(</span><span class="o">**</span><span class="nb">getattr</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="s2">"aliases"</span><span class="p">,</span> <span class="p">{}))</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">opts</span><span class="p">,</span> <span class="s2">"analyzers"</span><span class="p">,</span> <span class="p">()):</span>
             <span class="n">i</span><span class="o">.</span><span class="n">analyzer</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">i</span>
 
@@ -182,10 +182,10 @@
         <span class="n">bases</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Type</span><span class="p">[</span><span class="n">ObjectBase</span><span class="p">]],</span>
         <span class="n">attrs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">meta</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Meta&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="n">attrs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"Meta"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
         <span class="c1"># create the mapping instance</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="s2">&quot;mapping&quot;</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="s2">"mapping"</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">())</span>
 
         <span class="c1"># register all declared fields into the mapping</span>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">attrs</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
@@ -199,9 +199,9 @@
                 <span class="n">params</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">meta</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="c1"># document inheritance - include the fields from parents&#39; mappings</span>
+        <span class="c1"># document inheritance - include the fields from parents' mappings</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s2">&quot;_doc_type&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">_doc_type</span><span class="p">,</span> <span class="s2">&quot;mapping&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="s2">"_doc_type"</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">_doc_type</span><span class="p">,</span> <span class="s2">"mapping"</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">_doc_type</span><span class="o">.</span><span class="n">mapping</span><span class="p">,</span> <span class="n">update_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="nd">@property</span>
@@ -210,29 +210,29 @@
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">InnerDoc</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">DocumentMeta</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Common class for inner documents like Object or Nested</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_opensearch</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">data_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">data_only</span><span class="p">:</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;_source&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"_source"</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">from_opensearch</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="Document">
 <a class="viewcode-back" href="../../../api-ref/helpers/document.html#opensearchpy.helpers.document.Document">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Document</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">IndexMeta</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Model-like class for persisting documents in opensearch.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_matches</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">hit</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_index</span><span class="o">.</span><span class="n">_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
-        <span class="k">return</span> <span class="n">fnmatch</span><span class="p">(</span><span class="n">hit</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;_index&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_index</span><span class="o">.</span><span class="n">_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fnmatch</span><span class="p">(</span><span class="n">hit</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"_index"</span><span class="p">,</span> <span class="s2">""</span><span class="p">),</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_index</span><span class="o">.</span><span class="n">_name</span><span class="p">)</span>
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_get_using</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">using</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
@@ -250,9 +250,9 @@
 <a class="viewcode-back" href="../../../api-ref/helpers/document.html#opensearchpy.helpers.document.Document.init">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">using</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Create the index and populate the mappings in opensearch.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">i</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_index</span>
         <span class="k">if</span> <span class="n">index</span><span class="p">:</span>
             <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
@@ -261,23 +261,23 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_get_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">index</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span> <span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span> <span class="s2">"index"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">index</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">,</span> <span class="s2">&quot;_name&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">,</span> <span class="s2">"_name"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">required</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">ValidationException</span><span class="p">(</span><span class="s2">&quot;No index&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">index</span> <span class="ow">and</span> <span class="s2">&quot;*&quot;</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">ValidationException</span><span class="p">(</span><span class="s2">&quot;You cannot write to a wildcard index.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ValidationException</span><span class="p">(</span><span class="s2">"No index"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="ow">and</span> <span class="s2">"*"</span> <span class="ow">in</span> <span class="n">index</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ValidationException</span><span class="p">(</span><span class="s2">"You cannot write to a wildcard index."</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">index</span>
 
 <div class="viewcode-block" id="Document.__repr__">
 <a class="viewcode-back" href="../../../api-ref/helpers/document.html#opensearchpy.helpers.document.Document.__repr__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="k">return</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">(</span><span class="si">{}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
-            <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="si">!r}</span><span class="s2">&quot;</span>
-                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">)</span>
+            <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="si">!r}</span><span class="s2">"</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"index"</span><span class="p">,</span> <span class="s2">"id"</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span>
             <span class="p">),</span>
         <span class="p">)</span></div>
@@ -287,10 +287,10 @@
 <a class="viewcode-back" href="../../../api-ref/helpers/document.html#opensearchpy.helpers.document.Document.search">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">using</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Create an :class:`~opensearchpy.Search` instance that will search</span>
 <span class="sd">        over this ``Document``.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="n">Search</span><span class="p">(</span>
             <span class="n">using</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">_get_using</span><span class="p">(</span><span class="n">using</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">_default_index</span><span class="p">(</span><span class="n">index</span><span class="p">),</span> <span class="n">doc_type</span><span class="o">=</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span>
         <span class="p">)</span></div>
@@ -300,20 +300,20 @@
 <a class="viewcode-back" href="../../../api-ref/helpers/document.html#opensearchpy.helpers.document.Document.get">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">using</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Retrieve a single document from opensearch using its ``id``.</span>
 
 <span class="sd">        :arg id: ``id`` of the document to be retrieved</span>
 <span class="sd">        :arg index: opensearch index to use, if the ``Document`` is</span>
 <span class="sd">            associated with an index this can be omitted.</span>
-<span class="sd">        :arg using: connection alias to use, defaults to ``&#39;default&#39;``</span>
+<span class="sd">        :arg using: connection alias to use, defaults to ``'default'``</span>
 
 <span class="sd">        Any additional keyword arguments will be passed to</span>
 <span class="sd">        ``OpenSearch.get`` unchanged.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">opensearch</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_connection</span><span class="p">(</span><span class="n">using</span><span class="p">)</span>
         <span class="n">doc</span> <span class="o">=</span> <span class="n">opensearch</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">_default_index</span><span class="p">(</span><span class="n">index</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;found&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"found"</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">None</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_opensearch</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span></div>
 
@@ -324,17 +324,17 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">exists</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">using</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        check if exists a single document from opensearch using its ``id``.</span>
 
 <span class="sd">        :arg id: ``id`` of the document to check if exists</span>
 <span class="sd">        :arg index: opensearch index to use, if the ``Document`` is</span>
 <span class="sd">            associated with an index this can be omitted.</span>
-<span class="sd">        :arg using: connection alias to use, defaults to ``&#39;default&#39;``</span>
+<span class="sd">        :arg using: connection alias to use, defaults to ``'default'``</span>
 
 <span class="sd">        Any additional keyword arguments will be passed to</span>
 <span class="sd">        ``OpenSearch.exists`` unchanged.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">opensearch</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_connection</span><span class="p">(</span><span class="n">using</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">opensearch</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="n">_default_index</span><span class="p">(</span><span class="n">index</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
@@ -348,32 +348,32 @@
         <span class="n">using</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">raise_on_error</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="n">missing</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+        <span class="n">missing</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Retrieve multiple document by their ``id``&#39;s. Returns a list of instances</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Retrieve multiple document by their ``id``'s. Returns a list of instances</span>
 <span class="sd">        in the same order as requested.</span>
 
-<span class="sd">        :arg docs: list of ``id``&#39;s of the documents to be retrieved or a list</span>
+<span class="sd">        :arg docs: list of ``id``'s of the documents to be retrieved or a list</span>
 <span class="sd">            of document specifications as per</span>
 <span class="sd">            https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/multi-get/</span>
 <span class="sd">        :arg index: opensearch index to use, if the ``Document`` is</span>
 <span class="sd">            associated with an index this can be omitted.</span>
-<span class="sd">        :arg using: connection alias to use, defaults to ``&#39;default&#39;``</span>
+<span class="sd">        :arg using: connection alias to use, defaults to ``'default'``</span>
 <span class="sd">        :arg missing: what to do when one of the documents requested is not</span>
-<span class="sd">            found. Valid options are ``&#39;none&#39;`` (use ``None``), ``&#39;raise&#39;`` (raise</span>
-<span class="sd">            ``NotFoundError``) or ``&#39;skip&#39;`` (ignore the missing document).</span>
+<span class="sd">            found. Valid options are ``'none'`` (use ``None``), ``'raise'`` (raise</span>
+<span class="sd">            ``NotFoundError``) or ``'skip'`` (ignore the missing document).</span>
 
 <span class="sd">        Any additional keyword arguments will be passed to</span>
 <span class="sd">        ``OpenSearch.mget`` unchanged.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">missing</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;raise&quot;</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">,</span> <span class="s2">&quot;none&quot;</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;missing&#39; must be &#39;raise&#39;, &#39;skip&#39;, or &#39;none&#39;.&quot;</span><span class="p">)</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="n">missing</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"raise"</span><span class="p">,</span> <span class="s2">"skip"</span><span class="p">,</span> <span class="s2">"none"</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"'missing' must be 'raise', 'skip', or 'none'."</span><span class="p">)</span>
         <span class="n">opensearch</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_get_connection</span><span class="p">(</span><span class="n">using</span><span class="p">)</span>
         <span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;docs&quot;</span><span class="p">:</span> <span class="p">[</span>
-                <span class="n">doc</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">collections_abc</span><span class="o">.</span><span class="n">Mapping</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span><span class="p">:</span> <span class="n">doc</span><span class="p">}</span>
+            <span class="s2">"docs"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="n">doc</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">collections_abc</span><span class="o">.</span><span class="n">Mapping</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span><span class="s2">"_id"</span><span class="p">:</span> <span class="n">doc</span><span class="p">}</span>
                 <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span>
             <span class="p">]</span>
         <span class="p">}</span>
@@ -382,60 +382,60 @@
         <span class="n">objs</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">error_docs</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">missing_docs</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;docs&quot;</span><span class="p">]:</span>
-            <span class="k">if</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;found&quot;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="s2">"docs"</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"found"</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">error_docs</span> <span class="ow">or</span> <span class="n">missing_docs</span><span class="p">:</span>
-                    <span class="c1"># We&#39;re going to raise an exception anyway, so avoid an</span>
+                    <span class="c1"># We're going to raise an exception anyway, so avoid an</span>
                     <span class="c1"># expensive call to cls.from_opensearch().</span>
                     <span class="k">continue</span>
 
                 <span class="n">objs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">from_opensearch</span><span class="p">(</span><span class="n">doc</span><span class="p">))</span>
 
-            <span class="k">elif</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">):</span>
+            <span class="k">elif</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"error"</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">raise_on_error</span><span class="p">:</span>
                     <span class="n">error_docs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">missing</span> <span class="o">==</span> <span class="s2">&quot;none&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">missing</span> <span class="o">==</span> <span class="s2">"none"</span><span class="p">:</span>
                     <span class="n">objs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 
-            <span class="c1"># The doc didn&#39;t cause an error, but the doc also wasn&#39;t found.</span>
-            <span class="k">elif</span> <span class="n">missing</span> <span class="o">==</span> <span class="s2">&quot;raise&quot;</span><span class="p">:</span>
+            <span class="c1"># The doc didn't cause an error, but the doc also wasn't found.</span>
+            <span class="k">elif</span> <span class="n">missing</span> <span class="o">==</span> <span class="s2">"raise"</span><span class="p">:</span>
                 <span class="n">missing_docs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">missing</span> <span class="o">==</span> <span class="s2">&quot;none&quot;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="n">missing</span> <span class="o">==</span> <span class="s2">"none"</span><span class="p">:</span>
                 <span class="n">objs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">error_docs</span><span class="p">:</span>
-            <span class="n">error_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">error_docs</span><span class="p">]</span>
-            <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Required routing not provided for documents </span><span class="si">%s</span><span class="s2">.&quot;</span>
-            <span class="n">message</span> <span class="o">%=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">error_ids</span><span class="p">)</span>
+            <span class="n">error_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">[</span><span class="s2">"_id"</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">error_docs</span><span class="p">]</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="s2">"Required routing not provided for documents </span><span class="si">%s</span><span class="s2">."</span>
+            <span class="n">message</span> <span class="o">%=</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">error_ids</span><span class="p">)</span>
             <span class="k">raise</span> <span class="n">RequestError</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">error_docs</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">missing_docs</span><span class="p">:</span>
-            <span class="n">missing_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">[</span><span class="s2">&quot;_id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">missing_docs</span><span class="p">]</span>
-            <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Documents </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing_ids</span><span class="p">)</span><span class="si">}</span><span class="s2"> not found.&quot;</span>
-            <span class="k">raise</span> <span class="n">NotFoundError</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;docs&quot;</span><span class="p">:</span> <span class="n">missing_docs</span><span class="p">})</span>
+            <span class="n">missing_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span><span class="p">[</span><span class="s2">"_id"</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">missing_docs</span><span class="p">]</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Documents </span><span class="si">{</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing_ids</span><span class="p">)</span><span class="si">}</span><span class="s2"> not found."</span>
+            <span class="k">raise</span> <span class="n">NotFoundError</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="p">{</span><span class="s2">"docs"</span><span class="p">:</span> <span class="n">missing_docs</span><span class="p">})</span>
         <span class="k">return</span> <span class="n">objs</span></div>
 
 
 <div class="viewcode-block" id="Document.delete">
 <a class="viewcode-back" href="../../../api-ref/helpers/document.html#opensearchpy.helpers.document.Document.delete">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">using</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Delete the instance in opensearch.</span>
 
 <span class="sd">        :arg index: opensearch index to use, if the ``Document`` is</span>
 <span class="sd">            associated with an index this can be omitted.</span>
-<span class="sd">        :arg using: connection alias to use, defaults to ``&#39;default&#39;``</span>
+<span class="sd">        :arg using: connection alias to use, defaults to ``'default'``</span>
 
 <span class="sd">        Any additional keyword arguments will be passed to</span>
 <span class="sd">        ``OpenSearch.delete`` unchanged.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">opensearch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_connection</span><span class="p">(</span><span class="n">using</span><span class="p">)</span>
         <span class="c1"># extract routing etc from meta</span>
         <span class="n">doc_meta</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">DOC_META_FIELDS</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">}</span>
 
         <span class="c1"># Optimistic concurrency control</span>
-        <span class="k">if</span> <span class="s2">&quot;seq_no&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span> <span class="ow">and</span> <span class="s2">&quot;primary_term&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">:</span>
-            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">&quot;if_seq_no&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;seq_no&quot;</span><span class="p">]</span>
-            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">&quot;if_primary_term&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;primary_term&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">"seq_no"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span> <span class="ow">and</span> <span class="s2">"primary_term"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">:</span>
+            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">"if_seq_no"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">"seq_no"</span><span class="p">]</span>
+            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">"if_primary_term"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">"primary_term"</span><span class="p">]</span>
 
         <span class="n">doc_meta</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">opensearch</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_index</span><span class="p">(</span><span class="n">index</span><span class="p">),</span> <span class="o">**</span><span class="n">doc_meta</span><span class="p">)</span></div>
@@ -444,29 +444,29 @@
 <div class="viewcode-block" id="Document.to_dict">
 <a class="viewcode-back" href="../../../api-ref/helpers/document.html#opensearchpy.helpers.document.Document.to_dict">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">include_meta</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">skip_empty</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Serialize the instance into a dictionary so that it can be saved in opensearch.</span>
 
 <span class="sd">        :arg include_meta: if set to ``True`` will include all the metadata</span>
-<span class="sd">            (``_index``, ``_id`` etc). Otherwise just the document&#39;s</span>
+<span class="sd">            (``_index``, ``_id`` etc). Otherwise just the document's</span>
 <span class="sd">            data is serialized. This is useful when passing multiple instances into</span>
 <span class="sd">            ``opensearchpy.helpers.bulk``.</span>
 <span class="sd">        :arg skip_empty: if set to ``False`` will cause empty values (``None``,</span>
 <span class="sd">            ``[]``, ``{}``) to be left on the document. Those values will be</span>
 <span class="sd">            stripped out otherwise as they make no difference in opensearch.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">d</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">skip_empty</span><span class="o">=</span><span class="n">skip_empty</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">include_meta</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">d</span>
 
-        <span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">DOC_META_FIELDS</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">}</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"_"</span> <span class="o">+</span> <span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">DOC_META_FIELDS</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">}</span>
 
         <span class="c1"># in case of to_dict include the index unlike save/update/delete</span>
         <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_index</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;_index&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span>
+            <span class="n">meta</span><span class="p">[</span><span class="s2">"_index"</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span>
 
-        <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;_source&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span>
+        <span class="n">meta</span><span class="p">[</span><span class="s2">"_source"</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span>
         <span class="k">return</span> <span class="n">meta</span></div>
 
 
@@ -487,17 +487,17 @@
         <span class="n">return_doc_meta</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">fields</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Partial update of the document, specify fields you wish to update and</span>
 <span class="sd">        both the instance and the document in opensearch will be updated::</span>
 
-<span class="sd">            doc = MyDocument(title=&#39;Document Title!&#39;)</span>
+<span class="sd">            doc = MyDocument(title='Document Title!')</span>
 <span class="sd">            doc.save()</span>
-<span class="sd">            doc.update(title=&#39;New Document Title!&#39;)</span>
+<span class="sd">            doc.update(title='New Document Title!')</span>
 
 <span class="sd">        :arg index: opensearch index to use, if the ``Document`` is</span>
 <span class="sd">            associated with an index this can be omitted.</span>
-<span class="sd">        :arg using: connection alias to use, defaults to ``&#39;default&#39;``</span>
+<span class="sd">        :arg using: connection alias to use, defaults to ``'default'``</span>
 <span class="sd">        :arg detect_noop: Set to ``False`` to disable noop detection.</span>
 <span class="sd">        :arg refresh: Control when the changes made by this request are visible</span>
 <span class="sd">            to search. Set to ``True`` for immediate effect.</span>
@@ -514,33 +514,33 @@
 <span class="sd">            index API call instead of only the operation result</span>
 
 <span class="sd">        :return operation result noop/updated</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">body</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;doc_as_upsert&quot;</span><span class="p">:</span> <span class="n">doc_as_upsert</span><span class="p">,</span>
-            <span class="s2">&quot;detect_noop&quot;</span><span class="p">:</span> <span class="n">detect_noop</span><span class="p">,</span>
+            <span class="s2">"doc_as_upsert"</span><span class="p">:</span> <span class="n">doc_as_upsert</span><span class="p">,</span>
+            <span class="s2">"detect_noop"</span><span class="p">:</span> <span class="n">detect_noop</span><span class="p">,</span>
         <span class="p">}</span>
 
         <span class="c1"># scripted update</span>
         <span class="k">if</span> <span class="n">script</span> <span class="ow">or</span> <span class="n">script_id</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">upsert</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">body</span><span class="p">[</span><span class="s2">&quot;upsert&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">upsert</span>
+                <span class="n">body</span><span class="p">[</span><span class="s2">"upsert"</span><span class="p">]</span> <span class="o">=</span> <span class="n">upsert</span>
 
             <span class="k">if</span> <span class="n">script</span><span class="p">:</span>
-                <span class="n">script</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">script</span><span class="p">}</span>
+                <span class="n">script</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"source"</span><span class="p">:</span> <span class="n">script</span><span class="p">}</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">script</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">script_id</span><span class="p">}</span>
+                <span class="n">script</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="n">script_id</span><span class="p">}</span>
 
-            <span class="n">script</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fields</span>
+            <span class="n">script</span><span class="p">[</span><span class="s2">"params"</span><span class="p">]</span> <span class="o">=</span> <span class="n">fields</span>
 
-            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;script&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">script</span>
-            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;scripted_upsert&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scripted_upsert</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">"script"</span><span class="p">]</span> <span class="o">=</span> <span class="n">script</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">"scripted_upsert"</span><span class="p">]</span> <span class="o">=</span> <span class="n">scripted_upsert</span>
 
         <span class="c1"># partial document update</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">fields</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">IllegalOperation</span><span class="p">(</span>
-                    <span class="s2">&quot;You cannot call update() without updating individual fields or a script. &quot;</span>
-                    <span class="s2">&quot;If you wish to update the entire object use save().&quot;</span>
+                    <span class="s2">"You cannot call update() without updating individual fields or a script. "</span>
+                    <span class="s2">"If you wish to update the entire object use save()."</span>
                 <span class="p">)</span>
 
             <span class="c1"># update given fields locally</span>
@@ -550,32 +550,32 @@
             <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 
             <span class="c1"># if fields were given: partial update</span>
-            <span class="n">body</span><span class="p">[</span><span class="s2">&quot;doc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+            <span class="n">body</span><span class="p">[</span><span class="s2">"doc"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
 
         <span class="c1"># extract routing etc from meta</span>
         <span class="n">doc_meta</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">DOC_META_FIELDS</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">}</span>
 
         <span class="k">if</span> <span class="n">retry_on_conflict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">&quot;retry_on_conflict&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">retry_on_conflict</span>
+            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">"retry_on_conflict"</span><span class="p">]</span> <span class="o">=</span> <span class="n">retry_on_conflict</span>
 
         <span class="c1"># Optimistic concurrency control</span>
         <span class="k">if</span> <span class="p">(</span>
             <span class="n">retry_on_conflict</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-            <span class="ow">and</span> <span class="s2">&quot;seq_no&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span>
-            <span class="ow">and</span> <span class="s2">&quot;primary_term&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span>
+            <span class="ow">and</span> <span class="s2">"seq_no"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span>
+            <span class="ow">and</span> <span class="s2">"primary_term"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span>
         <span class="p">):</span>
-            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">&quot;if_seq_no&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;seq_no&quot;</span><span class="p">]</span>
-            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">&quot;if_primary_term&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;primary_term&quot;</span><span class="p">]</span>
+            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">"if_seq_no"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">"seq_no"</span><span class="p">]</span>
+            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">"if_primary_term"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">"primary_term"</span><span class="p">]</span>
 
         <span class="n">meta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_connection</span><span class="p">(</span><span class="n">using</span><span class="p">)</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
             <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_index</span><span class="p">(</span><span class="n">index</span><span class="p">),</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="n">refresh</span><span class="o">=</span><span class="n">refresh</span><span class="p">,</span> <span class="o">**</span><span class="n">doc_meta</span>
         <span class="p">)</span>
         <span class="c1"># update meta information from OpenSearch</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">META_FIELDS</span><span class="p">:</span>
-            <span class="k">if</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">meta</span><span class="p">:</span>
-                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">k</span><span class="p">])</span>
+            <span class="k">if</span> <span class="s2">"_"</span> <span class="o">+</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">meta</span><span class="p">:</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">meta</span><span class="p">[</span><span class="s2">"_"</span> <span class="o">+</span> <span class="n">k</span><span class="p">])</span>
 
-        <span class="k">return</span> <span class="n">meta</span> <span class="k">if</span> <span class="n">return_doc_meta</span> <span class="k">else</span> <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;result&quot;</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="n">meta</span> <span class="k">if</span> <span class="n">return_doc_meta</span> <span class="k">else</span> <span class="n">meta</span><span class="p">[</span><span class="s2">"result"</span><span class="p">]</span></div>
 
 
 <div class="viewcode-block" id="Document.save">
@@ -589,14 +589,14 @@
         <span class="n">return_doc_meta</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Save the document into opensearch. If the document doesn&#39;t exist it</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Save the document into opensearch. If the document doesn't exist it</span>
 <span class="sd">        is created, it is overwritten otherwise. Returns ``True`` if this</span>
 <span class="sd">        operations resulted in new document being created.</span>
 
 <span class="sd">        :arg index: opensearch index to use, if the ``Document`` is</span>
 <span class="sd">            associated with an index this can be omitted.</span>
-<span class="sd">        :arg using: connection alias to use, defaults to ``&#39;default&#39;``</span>
+<span class="sd">        :arg using: connection alias to use, defaults to ``'default'``</span>
 <span class="sd">        :arg validate: set to ``False`` to skip validating the document</span>
 <span class="sd">        :arg skip_empty: if set to ``False`` will cause empty values (``None``,</span>
 <span class="sd">            ``[]``, ``{}``) to be left on the document. Those values will be</span>
@@ -608,7 +608,7 @@
 <span class="sd">        ``OpenSearch.index`` unchanged.</span>
 
 <span class="sd">        :return operation result created/updated</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">validate</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">full_clean</span><span class="p">()</span>
 
@@ -617,9 +617,9 @@
         <span class="n">doc_meta</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">DOC_META_FIELDS</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">}</span>
 
         <span class="c1"># Optimistic concurrency control</span>
-        <span class="k">if</span> <span class="s2">&quot;seq_no&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span> <span class="ow">and</span> <span class="s2">&quot;primary_term&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">:</span>
-            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">&quot;if_seq_no&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;seq_no&quot;</span><span class="p">]</span>
-            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">&quot;if_primary_term&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;primary_term&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">"seq_no"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span> <span class="ow">and</span> <span class="s2">"primary_term"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">:</span>
+            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">"if_seq_no"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">"seq_no"</span><span class="p">]</span>
+            <span class="n">doc_meta</span><span class="p">[</span><span class="s2">"if_primary_term"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s2">"primary_term"</span><span class="p">]</span>
 
         <span class="n">doc_meta</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">meta</span> <span class="o">=</span> <span class="n">opensearch</span><span class="o">.</span><span class="n">index</span><span class="p">(</span>
@@ -629,10 +629,10 @@
         <span class="p">)</span>
         <span class="c1"># update meta information from OpenSearch</span>
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">META_FIELDS</span><span class="p">:</span>
-            <span class="k">if</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">meta</span><span class="p">:</span>
-                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">k</span><span class="p">])</span>
+            <span class="k">if</span> <span class="s2">"_"</span> <span class="o">+</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">meta</span><span class="p">:</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">meta</span><span class="p">[</span><span class="s2">"_"</span> <span class="o">+</span> <span class="n">k</span><span class="p">])</span>
 
-        <span class="k">return</span> <span class="n">meta</span> <span class="k">if</span> <span class="n">return_doc_meta</span> <span class="k">else</span> <span class="n">meta</span><span class="p">[</span><span class="s2">&quot;result&quot;</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="n">meta</span> <span class="k">if</span> <span class="n">return_doc_meta</span> <span class="k">else</span> <span class="n">meta</span><span class="p">[</span><span class="s2">"result"</span><span class="p">]</span></div>
 </div>
 
 </pre></div>

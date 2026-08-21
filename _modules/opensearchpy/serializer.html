@@ -92,7 +92,7 @@
 <span class="c1">#  license agreements. See the NOTICE file distributed with</span>
 <span class="c1">#  this work for additional information regarding copyright</span>
 <span class="c1">#  ownership. Elasticsearch B.V. licenses this file to you under</span>
-<span class="c1">#  the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1">#  the Apache License, Version 2.0 (the "License"); you may</span>
 <span class="c1">#  not use this file except in compliance with the License.</span>
 <span class="c1">#  You may obtain a copy of the License at</span>
 <span class="c1">#</span>
@@ -100,7 +100,7 @@
 <span class="c1">#</span>
 <span class="c1">#  Unless required by applicable law or agreed to in writing,</span>
 <span class="c1">#  software distributed under the License is distributed on an</span>
-<span class="c1">#  &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1">#  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
 <span class="c1">#  KIND, either express or implied.  See the License for the</span>
 <span class="c1">#  specific language governing permissions and limitations</span>
 <span class="c1">#  under the License.</span>
@@ -127,7 +127,7 @@
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">Serializer</span><span class="p">:</span>
-    <span class="n">mimetype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">mimetype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">loads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
@@ -137,7 +137,7 @@
 
 
 <span class="k">class</span><span class="w"> </span><span class="nc">TextSerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">):</span>
-    <span class="n">mimetype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;text/plain&quot;</span>
+    <span class="n">mimetype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"text/plain"</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">loads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">s</span>
@@ -146,21 +146,21 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">data</span>
 
-        <span class="k">raise</span> <span class="n">SerializationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot serialize </span><span class="si">{</span><span class="n">data</span><span class="si">!r}</span><span class="s2"> into text.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">SerializationError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Cannot serialize </span><span class="si">{</span><span class="n">data</span><span class="si">!r}</span><span class="s2"> into text."</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="JSONSerializer">
 <a class="viewcode-back" href="../../api-ref/serializer.html#opensearchpy.JSONSerializer">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">JSONSerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">):</span>
-    <span class="n">mimetype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
+    <span class="n">mimetype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">TIME_TYPES</span><span class="p">):</span>
             <span class="c1"># Little hack to avoid importing pandas but to not</span>
-            <span class="c1"># return &#39;NaT&#39; string for pd.NaT as that&#39;s not a valid</span>
+            <span class="c1"># return 'NaT' string for pd.NaT as that's not a valid</span>
             <span class="c1"># date.</span>
             <span class="n">formatted_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">formatted_data</span> <span class="o">!=</span> <span class="s2">&quot;NaT&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">formatted_data</span> <span class="o">!=</span> <span class="s2">"NaT"</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">formatted_data</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">):</span>
@@ -215,15 +215,15 @@
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">)):</span>
                 <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
             <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">)</span> <span class="ow">and</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span>
-                <span class="n">pd</span><span class="p">,</span> <span class="s2">&quot;NaT&quot;</span><span class="p">,</span> <span class="kc">None</span>
+                <span class="n">pd</span><span class="p">,</span> <span class="s2">"NaT"</span><span class="p">,</span> <span class="kc">None</span>
             <span class="p">):</span>
                 <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
-            <span class="k">elif</span> <span class="n">data</span> <span class="ow">is</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">pd</span><span class="p">,</span> <span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">elif</span> <span class="n">data</span> <span class="ow">is</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">pd</span><span class="p">,</span> <span class="s2">"NA"</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
                 <span class="k">return</span> <span class="kc">None</span>
         <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
             <span class="k">pass</span>
 
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unable to serialize </span><span class="si">{</span><span class="n">data</span><span class="si">!r}</span><span class="s2"> (type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unable to serialize </span><span class="si">{</span><span class="n">data</span><span class="si">!r}</span><span class="s2"> (type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">loads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
@@ -232,13 +232,13 @@
             <span class="k">raise</span> <span class="n">SerializationError</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">dumps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-        <span class="c1"># don&#39;t serialize strings</span>
+        <span class="c1"># don't serialize strings</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">string_types</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">data</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span>
-                <span class="n">data</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
+                <span class="n">data</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">default</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">":"</span><span class="p">)</span>
             <span class="p">)</span>
         <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">SerializationError</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span></div>
@@ -255,13 +255,13 @@
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">serializers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Serializer</span><span class="p">],</span>
-        <span class="n">default_mimetype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+        <span class="n">default_mimetype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"application/json"</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="n">serializers</span><span class="p">[</span><span class="n">default_mimetype</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">ImproperlyConfigured</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Cannot find default serializer (</span><span class="si">{</span><span class="n">default_mimetype</span><span class="si">}</span><span class="s2">)&quot;</span>
+                <span class="sa">f</span><span class="s2">"Cannot find default serializer (</span><span class="si">{</span><span class="n">default_mimetype</span><span class="si">}</span><span class="s2">)"</span>
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">serializers</span> <span class="o">=</span> <span class="n">serializers</span>
 
@@ -269,18 +269,18 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">mimetype</span><span class="p">:</span>
             <span class="n">deserializer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Treat &#39;application/vnd.elasticsearch+json&#39;</span>
+            <span class="c1"># Treat 'application/vnd.elasticsearch+json'</span>
             <span class="c1"># as application/json for compatibility.</span>
-            <span class="k">if</span> <span class="n">mimetype</span> <span class="o">==</span> <span class="s2">&quot;application/vnd.elasticsearch+json&quot;</span><span class="p">:</span>
-                <span class="n">mimetype</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
+            <span class="k">if</span> <span class="n">mimetype</span> <span class="o">==</span> <span class="s2">"application/vnd.elasticsearch+json"</span><span class="p">:</span>
+                <span class="n">mimetype</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 
             <span class="c1"># split out charset</span>
-            <span class="n">mimetype</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">mimetype</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+            <span class="n">mimetype</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">mimetype</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">";"</span><span class="p">)</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">deserializer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">serializers</span><span class="p">[</span><span class="n">mimetype</span><span class="p">]</span>
             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">SerializationError</span><span class="p">(</span>
-                    <span class="sa">f</span><span class="s2">&quot;Unknown mimetype, unable to deserialize: </span><span class="si">{</span><span class="n">mimetype</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">"Unknown mimetype, unable to deserialize: </span><span class="si">{</span><span class="n">mimetype</span><span class="si">}</span><span class="s2">"</span>
                 <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">deserializer</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
@@ -290,7 +290,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">AttrList</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">_l_</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;to_dict&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">"to_dict"</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 

@@ -93,7 +93,7 @@
 <span class="c1">#  license agreements. See the NOTICE file distributed with</span>
 <span class="c1">#  this work for additional information regarding copyright</span>
 <span class="c1">#  ownership. Elasticsearch B.V. licenses this file to you under</span>
-<span class="c1">#  the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1">#  the Apache License, Version 2.0 (the "License"); you may</span>
 <span class="c1">#  not use this file except in compliance with the License.</span>
 <span class="c1">#  You may obtain a copy of the License at</span>
 <span class="c1">#</span>
@@ -101,7 +101,7 @@
 <span class="c1">#</span>
 <span class="c1">#  Unless required by applicable law or agreed to in writing,</span>
 <span class="c1">#  software distributed under the License is distributed on an</span>
-<span class="c1">#  &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1">#  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
 <span class="c1">#  KIND, either express or implied.  See the License for the</span>
 <span class="c1">#  specific language governing permissions and limitations</span>
 <span class="c1">#  under the License.</span>
@@ -127,24 +127,24 @@
 <div class="viewcode-block" id="ClusterClient.health">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.health">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;awareness_attribute&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;expand_wildcards&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;level&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;wait_for_active_shards&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;wait_for_events&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;wait_for_no_initializing_shards&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;wait_for_no_relocating_shards&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;wait_for_nodes&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;wait_for_status&quot;</span><span class="p">,</span>
+        <span class="s2">"awareness_attribute"</span><span class="p">,</span>
+        <span class="s2">"cluster_manager_timeout"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"expand_wildcards"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"level"</span><span class="p">,</span>
+        <span class="s2">"local"</span><span class="p">,</span>
+        <span class="s2">"master_timeout"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
+        <span class="s2">"wait_for_active_shards"</span><span class="p">,</span>
+        <span class="s2">"wait_for_events"</span><span class="p">,</span>
+        <span class="s2">"wait_for_no_initializing_shards"</span><span class="p">,</span>
+        <span class="s2">"wait_for_no_relocating_shards"</span><span class="p">,</span>
+        <span class="s2">"wait_for_nodes"</span><span class="p">,</span>
+        <span class="s2">"wait_for_status"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">health</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -153,7 +153,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns basic information about the health of the cluster.</span>
 
 
@@ -175,7 +175,7 @@
 <span class="sd">            are all, closed, hidden, none, open.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg level: Controls the amount of detail included in the</span>
@@ -210,10 +210,10 @@
 <span class="sd">            use `ge(N)`, `le(N)`, `gt(N)`, and `lt(N)` notation.</span>
 <span class="sd">        :arg wait_for_status: Waits until the cluster health reaches the</span>
 <span class="sd">            specified status or better. Valid choices are green, yellow, red.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cluster&quot;</span><span class="p">,</span> <span class="s2">&quot;health&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span>
+            <span class="s2">"GET"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_cluster"</span><span class="p">,</span> <span class="s2">"health"</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
         <span class="p">)</span></div>
@@ -222,14 +222,14 @@
 <div class="viewcode-block" id="ClusterClient.pending_tasks">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.pending_tasks">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">"cluster_manager_timeout"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"local"</span><span class="p">,</span>
+        <span class="s2">"master_timeout"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">pending_tasks</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -237,7 +237,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns a list of pending cluster-level tasks, such as index creation, mapping</span>
 <span class="sd">        updates, or new allocations.</span>
 
@@ -251,7 +251,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg local: When `true`, the request retrieves information from</span>
@@ -266,29 +266,29 @@
 <span class="sd">            response. Default is false.</span>
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cluster/pending_tasks&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+            <span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"/_cluster/pending_tasks"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
         <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ClusterClient.state">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.state">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;allow_no_indices&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;expand_wildcards&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;flat_settings&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ignore_unavailable&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;wait_for_metadata_version&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;wait_for_timeout&quot;</span><span class="p">,</span>
+        <span class="s2">"allow_no_indices"</span><span class="p">,</span>
+        <span class="s2">"cluster_manager_timeout"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"expand_wildcards"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"flat_settings"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"ignore_unavailable"</span><span class="p">,</span>
+        <span class="s2">"local"</span><span class="p">,</span>
+        <span class="s2">"master_timeout"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"wait_for_metadata_version"</span><span class="p">,</span>
+        <span class="s2">"wait_for_timeout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">state</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -298,7 +298,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns comprehensive information about the state of the cluster.</span>
 
 
@@ -323,11 +323,11 @@
 <span class="sd">            are all, closed, hidden, none, open.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg flat_settings: Whether to return settings in the flat form,</span>
 <span class="sd">            which can improve readability, especially for heavily nested settings.</span>
-<span class="sd">            For example, the flat form of `&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500</span>
-<span class="sd">            }` is `&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;`. Default is false.</span>
+<span class="sd">            For example, the flat form of `"cluster": { "max_shards_per_node": 500</span>
+<span class="sd">            }` is `"cluster.max_shards_per_node": "500"`. Default is false.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg ignore_unavailable: Whether the specified concrete indexes</span>
@@ -347,13 +347,13 @@
 <span class="sd">            be equal or greater than the specified metadata version.</span>
 <span class="sd">        :arg wait_for_timeout: The maximum time to wait for</span>
 <span class="sd">            `wait_for_metadata_version` before timing out.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">index</span> <span class="ow">and</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">SKIP_IN_PATH</span><span class="p">:</span>
-            <span class="n">metric</span> <span class="o">=</span> <span class="s2">&quot;_all&quot;</span>
+            <span class="n">metric</span> <span class="o">=</span> <span class="s2">"_all"</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cluster&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span>
+            <span class="s2">"GET"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_cluster"</span><span class="p">,</span> <span class="s2">"state"</span><span class="p">,</span> <span class="n">metric</span><span class="p">,</span> <span class="n">index</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
         <span class="p">)</span></div>
@@ -362,13 +362,13 @@
 <div class="viewcode-block" id="ClusterClient.stats">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.stats">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;flat_settings&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"flat_settings"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">stats</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -379,7 +379,7 @@
         <span class="n">metric</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">index_metric</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns a high-level overview of cluster statistics.</span>
 
 
@@ -395,11 +395,11 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg flat_settings: Whether to return settings in the flat form,</span>
 <span class="sd">            which can improve readability, especially for heavily nested settings.</span>
-<span class="sd">            For example, the flat form of `&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500</span>
-<span class="sd">            }` is `&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;`. Default is false.</span>
+<span class="sd">            For example, the flat form of `"cluster": { "max_shards_per_node": 500</span>
+<span class="sd">            }` is `"cluster.max_shards_per_node": "500"`. Default is false.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
@@ -409,16 +409,16 @@
 <span class="sd">        :arg timeout: The amount of time to wait for each node to</span>
 <span class="sd">            respond. If a node does not respond before its timeout expires, the</span>
 <span class="sd">            response does not include its stats. However, timed out nodes are</span>
-<span class="sd">            included in the response&#39;s `_nodes.failed` property. Defaults to no</span>
+<span class="sd">            included in the response's `_nodes.failed` property. Defaults to no</span>
 <span class="sd">            timeout.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+            <span class="s2">"GET"</span><span class="p">,</span>
             <span class="p">(</span>
-                <span class="s2">&quot;/_cluster/stats&quot;</span>
+                <span class="s2">"/_cluster/stats"</span>
                 <span class="k">if</span> <span class="n">node_id</span> <span class="ow">in</span> <span class="n">SKIP_IN_PATH</span>
                 <span class="k">else</span> <span class="n">_make_path</span><span class="p">(</span>
-                    <span class="s2">&quot;_cluster&quot;</span><span class="p">,</span> <span class="s2">&quot;stats&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="p">,</span> <span class="n">index_metric</span><span class="p">,</span> <span class="s2">&quot;nodes&quot;</span><span class="p">,</span> <span class="n">node_id</span>
+                    <span class="s2">"_cluster"</span><span class="p">,</span> <span class="s2">"stats"</span><span class="p">,</span> <span class="n">metric</span><span class="p">,</span> <span class="n">index_metric</span><span class="p">,</span> <span class="s2">"nodes"</span><span class="p">,</span> <span class="n">node_id</span>
                 <span class="p">)</span>
             <span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
@@ -429,18 +429,18 @@
 <div class="viewcode-block" id="ClusterClient.reroute">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.reroute">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;dry_run&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;explain&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;metric&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;retry_failed&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
+        <span class="s2">"cluster_manager_timeout"</span><span class="p">,</span>
+        <span class="s2">"dry_run"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"explain"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"master_timeout"</span><span class="p">,</span>
+        <span class="s2">"metric"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"retry_failed"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">reroute</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -449,7 +449,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Allows to manually change the allocation of individual shards in the cluster.</span>
 
 
@@ -468,7 +468,7 @@
 <span class="sd">            of why reroute certain commands can or cannot be executed.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
@@ -488,25 +488,25 @@
 <span class="sd">            (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d`</span>
 <span class="sd">            (days). Also accepts `0` without a unit and `-1` to indicate an</span>
 <span class="sd">            unspecified value.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cluster/reroute&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span>
+            <span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"/_cluster/reroute"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span>
         <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ClusterClient.get_settings">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.get_settings">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;flat_settings&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;include_defaults&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
+        <span class="s2">"cluster_manager_timeout"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"flat_settings"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"include_defaults"</span><span class="p">,</span>
+        <span class="s2">"master_timeout"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_settings</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -514,7 +514,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns cluster settings.</span>
 
 
@@ -527,11 +527,11 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg flat_settings: Whether to return settings in the flat form,</span>
 <span class="sd">            which can improve readability, especially for heavily nested settings.</span>
-<span class="sd">            For example, the flat form of `&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500</span>
-<span class="sd">            }` is `&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;`. Default is false.</span>
+<span class="sd">            For example, the flat form of `"cluster": { "max_shards_per_node": 500</span>
+<span class="sd">            }` is `"cluster.max_shards_per_node": "500"`. Default is false.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg include_defaults: When `true`, returns default cluster</span>
@@ -549,24 +549,24 @@
 <span class="sd">            (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d`</span>
 <span class="sd">            (days). Also accepts `0` without a unit and `-1` to indicate an</span>
 <span class="sd">            unspecified value.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cluster/settings&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+            <span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"/_cluster/settings"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
         <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ClusterClient.put_settings">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.put_settings">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;flat_settings&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
+        <span class="s2">"cluster_manager_timeout"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"flat_settings"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"master_timeout"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">put_settings</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -575,7 +575,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Updates the cluster settings.</span>
 
 
@@ -589,11 +589,11 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg flat_settings: Whether to return settings in the flat form,</span>
 <span class="sd">            which can improve readability, especially for heavily nested settings.</span>
-<span class="sd">            For example, the flat form of `&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500</span>
-<span class="sd">            }` is `&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;`. Default is false.</span>
+<span class="sd">            For example, the flat form of `"cluster": { "max_shards_per_node": 500</span>
+<span class="sd">            }` is `"cluster.max_shards_per_node": "500"`. Default is false.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
@@ -609,25 +609,25 @@
 <span class="sd">            (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d`</span>
 <span class="sd">            (days). Also accepts `0` without a unit and `-1` to indicate an</span>
 <span class="sd">            unspecified value.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">body</span> <span class="ow">in</span> <span class="n">SKIP_IN_PATH</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Empty value passed for a required argument &#39;body&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Empty value passed for a required argument 'body'."</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;PUT&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cluster/settings&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span>
+            <span class="s2">"PUT"</span><span class="p">,</span> <span class="s2">"/_cluster/settings"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">body</span>
         <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ClusterClient.remote_info">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.remote_info">[docs]</a>
-    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">&quot;error_trace&quot;</span><span class="p">,</span> <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span> <span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;pretty&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">)</span>
+    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">"error_trace"</span><span class="p">,</span> <span class="s2">"filter_path"</span><span class="p">,</span> <span class="s2">"human"</span><span class="p">,</span> <span class="s2">"pretty"</span><span class="p">,</span> <span class="s2">"source"</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">remote_info</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns the information about configured remote clusters.</span>
 
 
@@ -635,29 +635,29 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
 <span class="sd">            response. Default is false.</span>
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;/_remote/info&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+            <span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"/_remote/info"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
         <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ClusterClient.allocation_explain">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.allocation_explain">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;include_disk_info&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;include_yes_decisions&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"include_disk_info"</span><span class="p">,</span>
+        <span class="s2">"include_yes_decisions"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">allocation_explain</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -666,9 +666,9 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Explains how shards are allocated in the current cluster and provides an</span>
-<span class="sd">        explanation for why unassigned shards can&#39;t be allocated to a node.</span>
+<span class="sd">        explanation for why unassigned shards can't be allocated to a node.</span>
 
 
 <span class="sd">        :arg body: The index, shard, and primary flag for which to</span>
@@ -678,7 +678,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg include_disk_info: When `true`, returns information about</span>
@@ -691,10 +691,10 @@
 <span class="sd">            response. Default is false.</span>
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;/_cluster/allocation/explain&quot;</span><span class="p">,</span>
+            <span class="s2">"POST"</span><span class="p">,</span>
+            <span class="s2">"/_cluster/allocation/explain"</span><span class="p">,</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
             <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
@@ -704,14 +704,14 @@
 <div class="viewcode-block" id="ClusterClient.delete_component_template">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.delete_component_template">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
+        <span class="s2">"cluster_manager_timeout"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"master_timeout"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">delete_component_template</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -720,7 +720,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Deletes a component template.</span>
 
 
@@ -735,7 +735,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
@@ -751,13 +751,13 @@
 <span class="sd">            (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d`</span>
 <span class="sd">            (days). Also accepts `0` without a unit and `-1` to indicate an</span>
 <span class="sd">            unspecified value.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">SKIP_IN_PATH</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Empty value passed for a required argument &#39;name&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Empty value passed for a required argument 'name'."</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;DELETE&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_component_template&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span>
+            <span class="s2">"DELETE"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_component_template"</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
         <span class="p">)</span></div>
@@ -766,15 +766,15 @@
 <div class="viewcode-block" id="ClusterClient.get_component_template">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.get_component_template">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;flat_settings&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">"cluster_manager_timeout"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"flat_settings"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"local"</span><span class="p">,</span>
+        <span class="s2">"master_timeout"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_component_template</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -783,7 +783,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns one or more component templates.</span>
 
 
@@ -798,11 +798,11 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg flat_settings: Whether to return settings in the flat form,</span>
 <span class="sd">            which can improve readability, especially for heavily nested settings.</span>
-<span class="sd">            For example, the flat form of `&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500</span>
-<span class="sd">            }` is `&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;`. Default is false.</span>
+<span class="sd">            For example, the flat form of `"cluster": { "max_shards_per_node": 500</span>
+<span class="sd">            }` is `"cluster.max_shards_per_node": "500"`. Default is false.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg local: When `true`, the request retrieves information from</span>
@@ -817,10 +817,10 @@
 <span class="sd">            response. Default is false.</span>
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_component_template&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span>
+            <span class="s2">"GET"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_component_template"</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
         <span class="p">)</span></div>
@@ -829,15 +829,15 @@
 <div class="viewcode-block" id="ClusterClient.put_component_template">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.put_component_template">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;create&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
+        <span class="s2">"cluster_manager_timeout"</span><span class="p">,</span>
+        <span class="s2">"create"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"master_timeout"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">put_component_template</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -847,7 +847,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Creates or updates a component template.</span>
 
 
@@ -874,7 +874,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg master_timeout (Deprecated: To promote inclusive language,</span>
@@ -890,14 +890,14 @@
 <span class="sd">            (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d`</span>
 <span class="sd">            (days). Also accepts `0` without a unit and `-1` to indicate an</span>
 <span class="sd">            unspecified value.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">SKIP_IN_PATH</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Empty value passed for a required argument.&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Empty value passed for a required argument."</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_component_template&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span>
+            <span class="s2">"PUT"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_component_template"</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
             <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
@@ -907,14 +907,14 @@
 <div class="viewcode-block" id="ClusterClient.exists_component_template">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.exists_component_template">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;cluster_manager_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;local&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;master_timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
+        <span class="s2">"cluster_manager_timeout"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"local"</span><span class="p">,</span>
+        <span class="s2">"master_timeout"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">exists_component_template</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -923,7 +923,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns information about whether a particular component template exist.</span>
 
 
@@ -938,7 +938,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg local: When `true`, the request retrieves information from</span>
@@ -953,13 +953,13 @@
 <span class="sd">            response. Default is false.</span>
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">SKIP_IN_PATH</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Empty value passed for a required argument &#39;name&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Empty value passed for a required argument 'name'."</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;HEAD&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_component_template&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span>
+            <span class="s2">"HEAD"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_component_template"</span><span class="p">,</span> <span class="n">name</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
         <span class="p">)</span></div>
@@ -968,7 +968,7 @@
 <div class="viewcode-block" id="ClusterClient.delete_voting_config_exclusions">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.delete_voting_config_exclusions">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span> <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span> <span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;pretty&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;wait_for_removal&quot;</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span> <span class="s2">"filter_path"</span><span class="p">,</span> <span class="s2">"human"</span><span class="p">,</span> <span class="s2">"pretty"</span><span class="p">,</span> <span class="s2">"source"</span><span class="p">,</span> <span class="s2">"wait_for_removal"</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">delete_voting_config_exclusions</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -976,7 +976,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Clears any cluster voting configuration exclusions.</span>
 
 
@@ -984,7 +984,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
@@ -997,10 +997,10 @@
 <span class="sd">            removed from the cluster before this API takes any action. When `false`,</span>
 <span class="sd">            the voting configuration exclusions list is cleared even if some</span>
 <span class="sd">            excluded nodes are still in the cluster. Default is True.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;DELETE&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;/_cluster/voting_config_exclusions&quot;</span><span class="p">,</span>
+            <span class="s2">"DELETE"</span><span class="p">,</span>
+            <span class="s2">"/_cluster/voting_config_exclusions"</span><span class="p">,</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
         <span class="p">)</span></div>
@@ -1009,14 +1009,14 @@
 <div class="viewcode-block" id="ClusterClient.post_voting_config_exclusions">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.post_voting_config_exclusions">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;node_ids&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;node_names&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"node_ids"</span><span class="p">,</span>
+        <span class="s2">"node_names"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">post_voting_config_exclusions</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -1024,7 +1024,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Updates the cluster voting configuration by excluding certain node IDs or</span>
 <span class="sd">        names.</span>
 
@@ -1033,7 +1033,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg node_ids: A comma-separated list of node IDs to exclude</span>
@@ -1053,22 +1053,22 @@
 <span class="sd">            configuration before returning a response. If the timeout expires before</span>
 <span class="sd">            the appropriate condition is satisfied, the request fails and returns an</span>
 <span class="sd">            error.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cluster/voting_config_exclusions&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+            <span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"/_cluster/voting_config_exclusions"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
         <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ClusterClient.delete_decommission_awareness">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.delete_decommission_awareness">[docs]</a>
-    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">&quot;error_trace&quot;</span><span class="p">,</span> <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span> <span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;pretty&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">)</span>
+    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">"error_trace"</span><span class="p">,</span> <span class="s2">"filter_path"</span><span class="p">,</span> <span class="s2">"human"</span><span class="p">,</span> <span class="s2">"pretty"</span><span class="p">,</span> <span class="s2">"source"</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">delete_decommission_awareness</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Recommissions a decommissioned zone.</span>
 
 
@@ -1076,22 +1076,22 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
 <span class="sd">            response. Default is false.</span>
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;DELETE&quot;</span><span class="p">,</span> <span class="s2">&quot;/_cluster/decommission/awareness&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+            <span class="s2">"DELETE"</span><span class="p">,</span> <span class="s2">"/_cluster/decommission/awareness"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
         <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ClusterClient.delete_weighted_routing">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.delete_weighted_routing">[docs]</a>
-    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">&quot;error_trace&quot;</span><span class="p">,</span> <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span> <span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;pretty&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">)</span>
+    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">"error_trace"</span><span class="p">,</span> <span class="s2">"filter_path"</span><span class="p">,</span> <span class="s2">"human"</span><span class="p">,</span> <span class="s2">"pretty"</span><span class="p">,</span> <span class="s2">"source"</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">delete_weighted_routing</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -1099,7 +1099,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Delete weighted shard routing weights.</span>
 
 
@@ -1107,17 +1107,17 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
 <span class="sd">            response. Default is false.</span>
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;DELETE&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;/_cluster/routing/awareness/weights&quot;</span><span class="p">,</span>
+            <span class="s2">"DELETE"</span><span class="p">,</span>
+            <span class="s2">"/_cluster/routing/awareness/weights"</span><span class="p">,</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
             <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
@@ -1126,7 +1126,7 @@
 
 <div class="viewcode-block" id="ClusterClient.get_decommission_awareness">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.get_decommission_awareness">[docs]</a>
-    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">&quot;error_trace&quot;</span><span class="p">,</span> <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span> <span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;pretty&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">)</span>
+    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">"error_trace"</span><span class="p">,</span> <span class="s2">"filter_path"</span><span class="p">,</span> <span class="s2">"human"</span><span class="p">,</span> <span class="s2">"pretty"</span><span class="p">,</span> <span class="s2">"source"</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_decommission_awareness</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -1134,7 +1134,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Retrieves the decommission status for all zones.</span>
 
 
@@ -1144,27 +1144,27 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
 <span class="sd">            response. Default is false.</span>
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">awareness_attribute_name</span> <span class="ow">in</span> <span class="n">SKIP_IN_PATH</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">&quot;Empty value passed for a required argument &#39;awareness_attribute_name&#39;.&quot;</span>
+                <span class="s2">"Empty value passed for a required argument 'awareness_attribute_name'."</span>
             <span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+            <span class="s2">"GET"</span><span class="p">,</span>
             <span class="n">_make_path</span><span class="p">(</span>
-                <span class="s2">&quot;_cluster&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;decommission&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;awareness&quot;</span><span class="p">,</span>
+                <span class="s2">"_cluster"</span><span class="p">,</span>
+                <span class="s2">"decommission"</span><span class="p">,</span>
+                <span class="s2">"awareness"</span><span class="p">,</span>
                 <span class="n">awareness_attribute_name</span><span class="p">,</span>
-                <span class="s2">&quot;_status&quot;</span><span class="p">,</span>
+                <span class="s2">"_status"</span><span class="p">,</span>
             <span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
@@ -1173,7 +1173,7 @@
 
 <div class="viewcode-block" id="ClusterClient.get_weighted_routing">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.get_weighted_routing">[docs]</a>
-    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">&quot;error_trace&quot;</span><span class="p">,</span> <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span> <span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;pretty&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">)</span>
+    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">"error_trace"</span><span class="p">,</span> <span class="s2">"filter_path"</span><span class="p">,</span> <span class="s2">"human"</span><span class="p">,</span> <span class="s2">"pretty"</span><span class="p">,</span> <span class="s2">"source"</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_weighted_routing</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -1181,7 +1181,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Fetches weighted shard routing weights.</span>
 
 
@@ -1190,20 +1190,20 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
 <span class="sd">            response. Default is false.</span>
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">SKIP_IN_PATH</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Empty value passed for a required argument &#39;attribute&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Empty value passed for a required argument 'attribute'."</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cluster&quot;</span><span class="p">,</span> <span class="s2">&quot;routing&quot;</span><span class="p">,</span> <span class="s2">&quot;awareness&quot;</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="s2">&quot;weights&quot;</span><span class="p">),</span>
+            <span class="s2">"GET"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_cluster"</span><span class="p">,</span> <span class="s2">"routing"</span><span class="p">,</span> <span class="s2">"awareness"</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="s2">"weights"</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
         <span class="p">)</span></div>
@@ -1211,7 +1211,7 @@
 
 <div class="viewcode-block" id="ClusterClient.put_decommission_awareness">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.put_decommission_awareness">[docs]</a>
-    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">&quot;error_trace&quot;</span><span class="p">,</span> <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span> <span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;pretty&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">)</span>
+    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">"error_trace"</span><span class="p">,</span> <span class="s2">"filter_path"</span><span class="p">,</span> <span class="s2">"human"</span><span class="p">,</span> <span class="s2">"pretty"</span><span class="p">,</span> <span class="s2">"source"</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">put_decommission_awareness</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -1220,7 +1220,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Decommissions a cluster zone based on awareness. This can greatly benefit</span>
 <span class="sd">        multi-zone deployments, where awareness attributes can aid in applying new</span>
 <span class="sd">        upgrades to a cluster in a controlled fashion.</span>
@@ -1237,24 +1237,24 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
 <span class="sd">            response. Default is false.</span>
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="p">(</span><span class="n">awareness_attribute_name</span><span class="p">,</span> <span class="n">awareness_attribute_value</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">SKIP_IN_PATH</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Empty value passed for a required argument.&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Empty value passed for a required argument."</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+            <span class="s2">"PUT"</span><span class="p">,</span>
             <span class="n">_make_path</span><span class="p">(</span>
-                <span class="s2">&quot;_cluster&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;decommission&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;awareness&quot;</span><span class="p">,</span>
+                <span class="s2">"_cluster"</span><span class="p">,</span>
+                <span class="s2">"decommission"</span><span class="p">,</span>
+                <span class="s2">"awareness"</span><span class="p">,</span>
                 <span class="n">awareness_attribute_name</span><span class="p">,</span>
                 <span class="n">awareness_attribute_value</span><span class="p">,</span>
             <span class="p">),</span>
@@ -1265,7 +1265,7 @@
 
 <div class="viewcode-block" id="ClusterClient.put_weighted_routing">
 <a class="viewcode-back" href="../../../api-ref/clients/cluster_client.html#opensearchpy.client.cluster.ClusterClient.put_weighted_routing">[docs]</a>
-    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">&quot;error_trace&quot;</span><span class="p">,</span> <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span> <span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;pretty&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">)</span>
+    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">"error_trace"</span><span class="p">,</span> <span class="s2">"filter_path"</span><span class="p">,</span> <span class="s2">"human"</span><span class="p">,</span> <span class="s2">"pretty"</span><span class="p">,</span> <span class="s2">"source"</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">put_weighted_routing</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -1274,7 +1274,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Updates weighted shard routing weights.</span>
 
 
@@ -1283,20 +1283,20 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
 <span class="sd">            response. Default is false.</span>
 <span class="sd">        :arg source: The URL-encoded request definition. Useful for</span>
 <span class="sd">            libraries that do not accept a request body for non-POST requests.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">SKIP_IN_PATH</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Empty value passed for a required argument &#39;attribute&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Empty value passed for a required argument 'attribute'."</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_cluster&quot;</span><span class="p">,</span> <span class="s2">&quot;routing&quot;</span><span class="p">,</span> <span class="s2">&quot;awareness&quot;</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="s2">&quot;weights&quot;</span><span class="p">),</span>
+            <span class="s2">"PUT"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_cluster"</span><span class="p">,</span> <span class="s2">"routing"</span><span class="p">,</span> <span class="s2">"awareness"</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="s2">"weights"</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
             <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>

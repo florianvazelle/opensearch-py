@@ -93,7 +93,7 @@
 <span class="c1">#  license agreements. See the NOTICE file distributed with</span>
 <span class="c1">#  this work for additional information regarding copyright</span>
 <span class="c1">#  ownership. Elasticsearch B.V. licenses this file to you under</span>
-<span class="c1">#  the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1">#  the Apache License, Version 2.0 (the "License"); you may</span>
 <span class="c1">#  not use this file except in compliance with the License.</span>
 <span class="c1">#  You may obtain a copy of the License at</span>
 <span class="c1">#</span>
@@ -101,7 +101,7 @@
 <span class="c1">#</span>
 <span class="c1">#  Unless required by applicable law or agreed to in writing,</span>
 <span class="c1">#  software distributed under the License is distributed on an</span>
-<span class="c1">#  &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1">#  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
 <span class="c1">#  KIND, either express or implied.  See the License for the</span>
 <span class="c1">#  specific language governing permissions and limitations</span>
 <span class="c1">#  under the License.</span>
@@ -126,7 +126,7 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">NodesClient</span><span class="p">(</span><span class="n">NamespacedClient</span><span class="p">):</span>
 <div class="viewcode-block" id="NodesClient.reload_secure_settings">
 <a class="viewcode-back" href="../../../api-ref/clients/nodes_client.html#opensearchpy.client.nodes.NodesClient.reload_secure_settings">[docs]</a>
-    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">&quot;error_trace&quot;</span><span class="p">,</span> <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span> <span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;pretty&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;timeout&quot;</span><span class="p">)</span>
+    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">"error_trace"</span><span class="p">,</span> <span class="s2">"filter_path"</span><span class="p">,</span> <span class="s2">"human"</span><span class="p">,</span> <span class="s2">"pretty"</span><span class="p">,</span> <span class="s2">"source"</span><span class="p">,</span> <span class="s2">"timeout"</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">reload_secure_settings</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -135,7 +135,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Reloads secure settings.</span>
 
 
@@ -147,7 +147,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
@@ -157,10 +157,10 @@
 <span class="sd">        :arg timeout: The amount of time to wait for a response. If no</span>
 <span class="sd">            response is received before the timeout expires, the request fails and</span>
 <span class="sd">            returns an error.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_nodes&quot;</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="s2">&quot;reload_secure_settings&quot;</span><span class="p">),</span>
+            <span class="s2">"POST"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_nodes"</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="s2">"reload_secure_settings"</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
             <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
@@ -170,13 +170,13 @@
 <div class="viewcode-block" id="NodesClient.info">
 <a class="viewcode-back" href="../../../api-ref/clients/nodes_client.html#opensearchpy.client.nodes.NodesClient.info">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;flat_settings&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"flat_settings"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -187,7 +187,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns information about nodes in the cluster.</span>
 
 
@@ -202,7 +202,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg flat_settings: When `true`, returns settings in flat</span>
 <span class="sd">            format. Default is false.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
@@ -214,28 +214,28 @@
 <span class="sd">        :arg timeout: The amount of time to wait for a response. If no</span>
 <span class="sd">            response is received before the timeout expires, the request fails and</span>
 <span class="sd">            returns an error.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_nodes&quot;</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">metric</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+            <span class="s2">"GET"</span><span class="p">,</span> <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_nodes"</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">metric</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
         <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="NodesClient.stats">
 <a class="viewcode-back" href="../../../api-ref/clients/nodes_client.html#opensearchpy.client.nodes.NodesClient.stats">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;completion_fields&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;fielddata_fields&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;fields&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;groups&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;include_segment_file_sizes&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;level&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;types&quot;</span><span class="p">,</span>
+        <span class="s2">"completion_fields"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"fielddata_fields"</span><span class="p">,</span>
+        <span class="s2">"fields"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"groups"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"include_segment_file_sizes"</span><span class="p">,</span>
+        <span class="s2">"level"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
+        <span class="s2">"types"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">stats</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -246,7 +246,7 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns statistical information about nodes in the cluster.</span>
 
 
@@ -267,7 +267,7 @@
 <span class="sd">            fields to include in the statistics.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg groups: A comma-separated list of search groups to include</span>
 <span class="sd">            in the search statistics.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
@@ -287,10 +287,10 @@
 <span class="sd">            returns an error.</span>
 <span class="sd">        :arg types: A comma-separated list of document types for the</span>
 <span class="sd">            indexing index metric.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_nodes&quot;</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="s2">&quot;stats&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="p">,</span> <span class="n">index_metric</span><span class="p">),</span>
+            <span class="s2">"GET"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_nodes"</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="s2">"stats"</span><span class="p">,</span> <span class="n">metric</span><span class="p">,</span> <span class="n">index_metric</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
         <span class="p">)</span></div>
@@ -299,17 +299,17 @@
 <div class="viewcode-block" id="NodesClient.hot_threads">
 <a class="viewcode-back" href="../../../api-ref/clients/nodes_client.html#opensearchpy.client.nodes.NodesClient.hot_threads">[docs]</a>
     <span class="nd">@query_params</span><span class="p">(</span>
-        <span class="s2">&quot;doc_type&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;error_trace&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;human&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;ignore_idle_threads&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;interval&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;pretty&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;snapshots&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;source&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;threads&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;timeout&quot;</span><span class="p">,</span>
+        <span class="s2">"doc_type"</span><span class="p">,</span>
+        <span class="s2">"error_trace"</span><span class="p">,</span>
+        <span class="s2">"filter_path"</span><span class="p">,</span>
+        <span class="s2">"human"</span><span class="p">,</span>
+        <span class="s2">"ignore_idle_threads"</span><span class="p">,</span>
+        <span class="s2">"interval"</span><span class="p">,</span>
+        <span class="s2">"pretty"</span><span class="p">,</span>
+        <span class="s2">"snapshots"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">,</span>
+        <span class="s2">"threads"</span><span class="p">,</span>
+        <span class="s2">"timeout"</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">hot_threads</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -318,13 +318,13 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns information about hot threads on each node in the cluster.</span>
 
 
 <span class="sd">        :arg node_id: A comma-separated list of node IDs or names to</span>
 <span class="sd">            limit the returned information; use `_local` to return information from</span>
-<span class="sd">            the node you&#39;re connecting to, leave empty to get information from all</span>
+<span class="sd">            the node you're connecting to, leave empty to get information from all</span>
 <span class="sd">            nodes.</span>
 <span class="sd">        :arg doc_type: The type to sample. Valid choices are block, cpu,</span>
 <span class="sd">            wait.</span>
@@ -332,7 +332,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg ignore_idle_threads: Whether to show threads that are in</span>
@@ -351,14 +351,14 @@
 <span class="sd">        :arg timeout: The amount of time to wait for a response. If no</span>
 <span class="sd">            response is received before the timeout expires, the request fails and</span>
 <span class="sd">            returns an error.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="c1"># type is a reserved word so it cannot be used, use doc_type instead</span>
-        <span class="k">if</span> <span class="s2">&quot;doc_type&quot;</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
-            <span class="n">params</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;doc_type&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">"doc_type"</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+            <span class="n">params</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"doc_type"</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_nodes&quot;</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="s2">&quot;hot_threads&quot;</span><span class="p">),</span>
+            <span class="s2">"GET"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_nodes"</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="s2">"hot_threads"</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
         <span class="p">)</span></div>
@@ -366,7 +366,7 @@
 
 <div class="viewcode-block" id="NodesClient.usage">
 <a class="viewcode-back" href="../../../api-ref/clients/nodes_client.html#opensearchpy.client.nodes.NodesClient.usage">[docs]</a>
-    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">&quot;error_trace&quot;</span><span class="p">,</span> <span class="s2">&quot;filter_path&quot;</span><span class="p">,</span> <span class="s2">&quot;human&quot;</span><span class="p">,</span> <span class="s2">&quot;pretty&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;timeout&quot;</span><span class="p">)</span>
+    <span class="nd">@query_params</span><span class="p">(</span><span class="s2">"error_trace"</span><span class="p">,</span> <span class="s2">"filter_path"</span><span class="p">,</span> <span class="s2">"human"</span><span class="p">,</span> <span class="s2">"pretty"</span><span class="p">,</span> <span class="s2">"source"</span><span class="p">,</span> <span class="s2">"timeout"</span><span class="p">)</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">usage</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -375,13 +375,13 @@
         <span class="n">params</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">headers</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns low-level information about REST actions usage on nodes.</span>
 
 
 <span class="sd">        :arg node_id: A comma-separated list of node IDs or names to</span>
 <span class="sd">            limit the returned information; use `_local` to return information from</span>
-<span class="sd">            the node you&#39;re connecting to, leave empty to get information from all</span>
+<span class="sd">            the node you're connecting to, leave empty to get information from all</span>
 <span class="sd">            nodes</span>
 <span class="sd">        :arg metric: Limits the information returned to the specific</span>
 <span class="sd">            metrics. A comma-separated list of the following options: `_all`,</span>
@@ -390,7 +390,7 @@
 <span class="sd">            errors. Default is false.</span>
 <span class="sd">        :arg filter_path: A comma-separated list of filters used to</span>
 <span class="sd">            filter the response. Use wildcards to match any field or part of a</span>
-<span class="sd">            field&#39;s name. To exclude fields, use `-`.</span>
+<span class="sd">            field's name. To exclude fields, use `-`.</span>
 <span class="sd">        :arg human: Whether to return human-readable values for</span>
 <span class="sd">            statistics. Default is false.</span>
 <span class="sd">        :arg pretty: Whether to pretty-format the returned JSON</span>
@@ -400,10 +400,10 @@
 <span class="sd">        :arg timeout: Period to wait for a response. If no response is</span>
 <span class="sd">            received before the timeout expires, the request fails and returns an</span>
 <span class="sd">            error.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">perform_request</span><span class="p">(</span>
-            <span class="s2">&quot;GET&quot;</span><span class="p">,</span>
-            <span class="n">_make_path</span><span class="p">(</span><span class="s2">&quot;_nodes&quot;</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="s2">&quot;usage&quot;</span><span class="p">,</span> <span class="n">metric</span><span class="p">),</span>
+            <span class="s2">"GET"</span><span class="p">,</span>
+            <span class="n">_make_path</span><span class="p">(</span><span class="s2">"_nodes"</span><span class="p">,</span> <span class="n">node_id</span><span class="p">,</span> <span class="s2">"usage"</span><span class="p">,</span> <span class="n">metric</span><span class="p">),</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
         <span class="p">)</span></div>

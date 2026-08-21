@@ -92,7 +92,7 @@
 <span class="c1">#  license agreements. See the NOTICE file distributed with</span>
 <span class="c1">#  this work for additional information regarding copyright</span>
 <span class="c1">#  ownership. Elasticsearch B.V. licenses this file to you under</span>
-<span class="c1">#  the Apache License, Version 2.0 (the &quot;License&quot;); you may</span>
+<span class="c1">#  the Apache License, Version 2.0 (the "License"); you may</span>
 <span class="c1">#  not use this file except in compliance with the License.</span>
 <span class="c1">#  You may obtain a copy of the License at</span>
 <span class="c1">#</span>
@@ -100,7 +100,7 @@
 <span class="c1">#</span>
 <span class="c1">#  Unless required by applicable law or agreed to in writing,</span>
 <span class="c1">#  software distributed under the License is distributed on an</span>
-<span class="c1">#  &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<span class="c1">#  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
 <span class="c1">#  KIND, either express or implied.  See the License for the</span>
 <span class="c1">#  specific language governing permissions and limitations</span>
 <span class="c1">#  under the License.</span>
@@ -118,10 +118,10 @@
 <div class="viewcode-block" id="UpdateByQuery">
 <a class="viewcode-back" href="../../../api-ref/helpers/update_by_query.html#opensearchpy.helpers.update_by_query.UpdateByQuery">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">UpdateByQuery</span><span class="p">(</span><span class="n">Request</span><span class="p">):</span>
-    <span class="n">query</span> <span class="o">=</span> <span class="n">ProxyDescriptor</span><span class="p">(</span><span class="s2">&quot;query&quot;</span><span class="p">)</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">ProxyDescriptor</span><span class="p">(</span><span class="s2">"query"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Update by query request to opensearch.</span>
 
 <span class="sd">        :arg using: `OpenSearch` instance to use</span>
@@ -131,11 +131,11 @@
 <span class="sd">        All the parameters supplied (or omitted) at creation type can be later</span>
 <span class="sd">        overridden by methods (`using`, `index` and `doc_type` respectively).</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_response_class</span> <span class="o">=</span> <span class="n">UpdateByQueryResponse</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_script</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_query_proxy</span> <span class="o">=</span> <span class="n">QueryProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;query&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_query_proxy</span> <span class="o">=</span> <span class="n">QueryProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"query"</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Bool</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="p">[</span><span class="n">Q</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)]))</span>
@@ -147,22 +147,22 @@
 <a class="viewcode-back" href="../../../api-ref/helpers/update_by_query.html#opensearchpy.helpers.update_by_query.UpdateByQuery.from_dict">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_dict</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">d</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Construct a new `UpdateByQuery` instance from a raw dict containing the search</span>
 <span class="sd">        body. Useful when migrating from raw dictionaries.</span>
 
 <span class="sd">        Example::</span>
 
 <span class="sd">            ubq = UpdateByQuery.from_dict({</span>
-<span class="sd">                &quot;query&quot;: {</span>
-<span class="sd">                    &quot;bool&quot;: {</span>
-<span class="sd">                        &quot;must&quot;: [...]</span>
+<span class="sd">                "query": {</span>
+<span class="sd">                    "bool": {</span>
+<span class="sd">                        "must": [...]</span>
 <span class="sd">                    }</span>
 <span class="sd">                },</span>
-<span class="sd">                &quot;script&quot;: {...}</span>
+<span class="sd">                "script": {...}</span>
 <span class="sd">            })</span>
-<span class="sd">            ubq = ubq.filter(&#39;term&#39;, published=True)</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">            ubq = ubq.filter('term', published=True)</span>
+<span class="sd">        """</span>
         <span class="n">u</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
         <span class="n">u</span><span class="o">.</span><span class="n">update_from_dict</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">u</span></div>
@@ -171,11 +171,11 @@
 <div class="viewcode-block" id="UpdateByQuery._clone">
 <a class="viewcode-back" href="../../../api-ref/helpers/update_by_query.html#opensearchpy.helpers.update_by_query.UpdateByQuery._clone">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">_clone</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Return a clone of the current search request. Performs a shallow copy</span>
 <span class="sd">        of all the underlying objects. Used internally by most state modifying</span>
 <span class="sd">        APIs.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">ubq</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
 
         <span class="n">ubq</span><span class="o">.</span><span class="n">_response_class</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_response_class</span>
@@ -187,9 +187,9 @@
 <div class="viewcode-block" id="UpdateByQuery.response_class">
 <a class="viewcode-back" href="../../../api-ref/helpers/update_by_query.html#opensearchpy.helpers.update_by_query.UpdateByQuery.response_class">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">response_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Override the default wrapper used for the response.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">ubq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
         <span class="n">ubq</span><span class="o">.</span><span class="n">_response_class</span> <span class="o">=</span> <span class="bp">cls</span>
         <span class="k">return</span> <span class="n">ubq</span></div>
@@ -197,16 +197,16 @@
 
 <div class="viewcode-block" id="UpdateByQuery.update_from_dict">
 <a class="viewcode-back" href="../../../api-ref/helpers/update_by_query.html#opensearchpy.helpers.update_by_query.UpdateByQuery.update_from_dict">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">update_from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;UpdateByQuery&quot;</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"UpdateByQuery"</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Apply options from a serialized body to the current instance. Modifies</span>
 <span class="sd">        the object in-place. Used mostly by ``from_dict``.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="k">if</span> <span class="s2">&quot;query&quot;</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">_proxied</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;query&quot;</span><span class="p">))</span>
-        <span class="k">if</span> <span class="s2">&quot;script&quot;</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_script</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">"query"</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">_proxied</span> <span class="o">=</span> <span class="n">Q</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"query"</span><span class="p">))</span>
+        <span class="k">if</span> <span class="s2">"script"</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_script</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"script"</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_extra</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
@@ -214,7 +214,7 @@
 <div class="viewcode-block" id="UpdateByQuery.script">
 <a class="viewcode-back" href="../../../api-ref/helpers/update_by_query.html#opensearchpy.helpers.update_by_query.UpdateByQuery.script">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">script</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Define update action to take:</span>
 
 <span class="sd">        Note: the API only accepts a single script, so</span>
@@ -223,11 +223,11 @@
 <span class="sd">        Example::</span>
 
 <span class="sd">            ubq = Search()</span>
-<span class="sd">            ubq = ubq.script(source=&quot;ctx._source.likes++&quot;&quot;)</span>
-<span class="sd">            ubq = ubq.script(source=&quot;ctx._source.likes += params.f&quot;&quot;,</span>
-<span class="sd">                         lang=&quot;expression&quot;,</span>
-<span class="sd">                         params={&#39;f&#39;: 3})</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">            ubq = ubq.script(source="ctx._source.likes++"")</span>
+<span class="sd">            ubq = ubq.script(source="ctx._source.likes += params.f"",</span>
+<span class="sd">                         lang="expression",</span>
+<span class="sd">                         params={'f': 3})</span>
+<span class="sd">        """</span>
         <span class="n">ubq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_clone</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">ubq</span><span class="o">.</span><span class="n">_script</span><span class="p">:</span>
             <span class="n">ubq</span><span class="o">.</span><span class="n">_script</span> <span class="o">=</span> <span class="p">{}</span>
@@ -238,18 +238,18 @@
 <div class="viewcode-block" id="UpdateByQuery.to_dict">
 <a class="viewcode-back" href="../../../api-ref/helpers/update_by_query.html#opensearchpy.helpers.update_by_query.UpdateByQuery.to_dict">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Serialize the search into the dictionary that will be sent over as the</span>
-<span class="sd">        request&#39;ubq body.</span>
+<span class="sd">        request'ubq body.</span>
 
 <span class="sd">        All additional keyword arguments will be included into the dictionary.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">:</span>
-            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;query&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">"query"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_script</span><span class="p">:</span>
-            <span class="n">d</span><span class="p">[</span><span class="s2">&quot;script&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_script</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">"script"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_script</span>
 
         <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">recursive_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_extra</span><span class="p">))</span>
         <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">recursive_to_dict</span><span class="p">(</span><span class="n">kwargs</span><span class="p">))</span>
@@ -259,10 +259,10 @@
 <div class="viewcode-block" id="UpdateByQuery.execute">
 <a class="viewcode-back" href="../../../api-ref/helpers/update_by_query.html#opensearchpy.helpers.update_by_query.UpdateByQuery.execute">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Execute the search and return an instance of ``Response`` wrapping all</span>
 <span class="sd">        the data.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">opensearch</span> <span class="o">=</span> <span class="n">get_connection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_using</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_response_class</span><span class="p">(</span>

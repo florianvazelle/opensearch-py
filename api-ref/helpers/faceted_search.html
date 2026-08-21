@@ -121,23 +121,23 @@
 composing the queries, aggregations and filters as needed as well as
 presenting the results in an easy-to-consume fashion:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">BlogSearch</span><span class="p">(</span><span class="n">FacetedSearch</span><span class="p">):</span>
-    <span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;blogs&#39;</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="s1">'blogs'</span>
     <span class="n">doc_types</span> <span class="o">=</span> <span class="p">[</span><span class="n">Blog</span><span class="p">,</span> <span class="n">Post</span><span class="p">]</span>
-    <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title^5&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">]</span>
+    <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'title^5'</span><span class="p">,</span> <span class="s1">'category'</span><span class="p">,</span> <span class="s1">'description'</span><span class="p">,</span> <span class="s1">'body'</span><span class="p">]</span>
 
     <span class="n">facets</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="n">TermsFacet</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;_type&#39;</span><span class="p">),</span>
-        <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="n">TermsFacet</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">),</span>
-        <span class="s1">&#39;weekly_posts&#39;</span><span class="p">:</span> <span class="n">DateHistogramFacet</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">&#39;published_from&#39;</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s1">&#39;week&#39;</span><span class="p">)</span>
+        <span class="s1">'type'</span><span class="p">:</span> <span class="n">TermsFacet</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">'_type'</span><span class="p">),</span>
+        <span class="s1">'category'</span><span class="p">:</span> <span class="n">TermsFacet</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">'category'</span><span class="p">),</span>
+        <span class="s1">'weekly_posts'</span><span class="p">:</span> <span class="n">DateHistogramFacet</span><span class="p">(</span><span class="n">field</span><span class="o">=</span><span class="s1">'published_from'</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s1">'week'</span><span class="p">)</span>
     <span class="p">}</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="s1">&#39; Override search to add your own filters &#39;</span>
+        <span class="s1">' Override search to add your own filters '</span>
         <span class="n">s</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">BlogSearch</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">&#39;term&#39;</span><span class="p">,</span> <span class="n">published</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="s1">'term'</span><span class="p">,</span> <span class="n">published</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># when using:</span>
-<span class="n">blog_search</span> <span class="o">=</span> <span class="n">BlogSearch</span><span class="p">(</span><span class="s2">&quot;web framework&quot;</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">})</span>
+<span class="n">blog_search</span> <span class="o">=</span> <span class="n">BlogSearch</span><span class="p">(</span><span class="s2">"web framework"</span><span class="p">,</span> <span class="n">filters</span><span class="o">=</span><span class="p">{</span><span class="s2">"category"</span><span class="p">:</span> <span class="s2">"python"</span><span class="p">})</span>
 
 <span class="c1"># supports pagination</span>
 <span class="n">blog_search</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
@@ -147,10 +147,10 @@ presenting the results in an easy-to-consume fashion:</p>
 <span class="c1"># easy access to aggregation results:</span>
 <span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">hit_count</span><span class="p">,</span> <span class="n">is_selected</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">facets</span><span class="o">.</span><span class="n">category</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span>
-        <span class="s2">&quot;Category </span><span class="si">%s</span><span class="s2"> has </span><span class="si">%d</span><span class="s2"> hits</span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span>
+        <span class="s2">"Category </span><span class="si">%s</span><span class="s2"> has </span><span class="si">%d</span><span class="s2"> hits</span><span class="si">%s</span><span class="s2">."</span> <span class="o">%</span> <span class="p">(</span>
             <span class="n">category</span><span class="p">,</span>
             <span class="n">hit_count</span><span class="p">,</span>
-            <span class="s1">&#39; and is chosen&#39;</span> <span class="k">if</span> <span class="n">is_selected</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+            <span class="s1">' and is chosen'</span> <span class="k">if</span> <span class="n">is_selected</span> <span class="k">else</span> <span class="s1">''</span>
         <span class="p">)</span>
     <span class="p">)</span>
 </pre></div>
